@@ -49,7 +49,7 @@
 <body>
     <div class="arcade-cabinet">
         <div class="game-screen">
-            <!-- Add your game code here -->
+            <!-- Add game code here -->
         </div>
         <div class="game-controls">
             <button class="button">Start</button>
