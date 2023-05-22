@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Leaderboard</title>
+  <link rel="stylesheet" href="leaderboard.css">
 </head>
 <body>
   <table id="leaderboard">
