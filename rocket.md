@@ -49,12 +49,49 @@
 <body>
     <div class="arcade-cabinet">
         <div class="game-screen">
-            <!-- Add game code here -->
+            <!-- Game code will be added dynamically -->
         </div>
         <div class="game-controls">
-            <button class="button">Start</button>
-            <button class="button">Reset</button>
+            <button class="button start-button">Start</button>
+            <button class="button reset-button">Reset</button>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var gameScreen = document.querySelector('.game-screen');
+            var startButton = document.querySelector('.start-button');
+            var resetButton = document.querySelector('.reset-button');
+            startButton.addEventListener('click', function() {
+                var velocity = Math.floor(Math.random() * 100) + 1;
+                // Make a POST request to the API
+                fetch('/api/rocket/rocket', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ velocity: velocity })
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    // Handle the API response
+                    var result = data.result;
+                    var resultMessage = document.createElement('p');
+                    resultMessage.textContent = result;
+                    resultMessage.style.color = '#0f0';
+                    resultMessage.style.fontWeight = 'bold';
+                    gameScreen.appendChild(resultMessage);
+                })
+                .catch(function(error) {
+                    console.error(error);
+                });
+            });
+            resetButton.addEventListener('click', function() {
+                // Reset the game screen
+                gameScreen.innerHTML = '';
+            });
+        });
+    </script>
 </body>
 </html>
