@@ -11,8 +11,10 @@ description: Working with 2D elements and working with animations
 <head>
     <title>Projectile Motion Simulation</title>
     <style>
-        canvas {
+        #canvas {
             border: 1px solid black;
+            background-image: url('https://pymunk-tutorial.readthedocs.io/en/latest/_images/background.png');
+            background-size: cover;
         }
     </style>
 </head>
