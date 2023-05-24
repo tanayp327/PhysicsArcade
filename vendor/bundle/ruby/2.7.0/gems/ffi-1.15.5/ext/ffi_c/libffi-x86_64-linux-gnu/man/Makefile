@@ -13,7 +13,11 @@
 # PARTICULAR PURPOSE.
 
 
+<<<<<<< HEAD
 VPATH = /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/man
+=======
+VPATH = /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/man
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
     false; \
@@ -165,16 +169,26 @@ MANS = $(man_MANS)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 am__DIST_COMMON = $(srcdir)/Makefile.in
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+<<<<<<< HEAD
 ACLOCAL = ${SHELL} /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing aclocal-1.16
+=======
+ACLOCAL = ${SHELL} /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing aclocal-1.16
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 ALLOCA = 
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AM_LTLDFLAGS = 
 AM_RUNTESTFLAGS = 
 AR = ar
+<<<<<<< HEAD
 AUTOCONF = ${SHELL} /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing autoconf
 AUTOHEADER = ${SHELL} /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing autoheader
 AUTOMAKE = ${SHELL} /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing automake-1.16
+=======
+AUTOCONF = ${SHELL} /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing autoconf
+AUTOHEADER = ${SHELL} /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing autoheader
+AUTOMAKE = ${SHELL} /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing automake-1.16
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 AWK = gawk
 CC = gcc
 CCAS = gcc
@@ -219,7 +233,11 @@ LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
 MAINT = #
+<<<<<<< HEAD
 MAKEINFO = ${SHELL} /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing makeinfo
+=======
+MAKEINFO = ${SHELL} /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/missing makeinfo
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -248,10 +266,17 @@ TARGET = X86_64
 TARGETDIR = x86
 TARGET_OBJ =  src/x86/ffi64.lo src/x86/unix64.lo src/x86/ffiw64.lo src/x86/win64.lo
 VERSION = 3.3
+<<<<<<< HEAD
 abs_builddir = /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi-x86_64-linux-gnu/man
 abs_srcdir = /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/man
 abs_top_builddir = /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi-x86_64-linux-gnu
 abs_top_srcdir = /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi
+=======
+abs_builddir = /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi-x86_64-linux-gnu/man
+abs_srcdir = /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/man
+abs_top_builddir = /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi-x86_64-linux-gnu
+abs_top_srcdir = /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -282,7 +307,11 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
+<<<<<<< HEAD
 install_sh = ${SHELL} /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/install-sh
+=======
+install_sh = ${SHELL} /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/install-sh
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -297,7 +326,11 @@ psdir = ${docdir}
 runstatedir = ${localstatedir}/run
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
+<<<<<<< HEAD
 srcdir = /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/man
+=======
+srcdir = /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/man
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 sys_symbol_underscore = no
 sysconfdir = ${prefix}/etc
 target = x86_64-pc-linux-gnu
@@ -309,7 +342,11 @@ toolexecdir = ${libdir}/gcc-lib/$(target_alias)
 toolexeclibdir = ${libdir}/../lib
 top_build_prefix = ../
 top_builddir = ..
+<<<<<<< HEAD
 top_srcdir = /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi
+=======
+top_srcdir = /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 AUTOMAKE_OPTIONS = foreign
 EXTRA_DIST = ffi.3 ffi_call.3 ffi_prep_cif.3 ffi_prep_cif_var.3
 man_MANS = ffi.3 ffi_call.3 ffi_prep_cif.3 ffi_prep_cif_var.3

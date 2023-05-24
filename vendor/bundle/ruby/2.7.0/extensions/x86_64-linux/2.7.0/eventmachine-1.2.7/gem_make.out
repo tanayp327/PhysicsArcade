@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
 /usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20230522-408-1g37tdl.rb extconf.rb
 creating Makefile
@@ -6,11 +7,27 @@ current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/g
 make "DESTDIR=" clean
 
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
+=======
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20230522-22856-6gwh9q.rb extconf.rb
+creating Makefile
+
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR=" clean
+
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 make "DESTDIR="
 compiling mapper.cpp
 compiling rubymain.cpp
 linking shared-object fastfilereaderext.so
 
+<<<<<<< HEAD
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20230522-408-7hcrau
+=======
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20230522-22856-1x1h91o
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b

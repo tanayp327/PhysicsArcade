@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # 1 "/home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/libffi.map.in"
+=======
+# 1 "/home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/libffi.map.in"
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
 # 1 "<command-line>" 2
+<<<<<<< HEAD
 # 1 "/home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/libffi.map.in"
 
 
@@ -10,6 +15,15 @@
 # 4 "/home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/libffi.map.in" 2
 # 1 "include/ffitarget.h" 1
 # 5 "/home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/libffi.map.in" 2
+=======
+# 1 "/home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/libffi.map.in"
+
+
+# 1 "./fficonfig.h" 1
+# 4 "/home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/libffi.map.in" 2
+# 1 "include/ffitarget.h" 1
+# 5 "/home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/ffi-1.15.5/ext/ffi_c/libffi/libffi.map.in" 2
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 
 
 

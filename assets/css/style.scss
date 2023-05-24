@@ -1,6 +1,3 @@
----
----
-
 @import "{{ site.theme }}";
 
 /* "row style" is flexible size and aligns pictures in center */
@@ -8,7 +5,7 @@
     align-items: center;
     display: flex;
   }
-  
+
   /* "column style" is one-third of the width with padding */
   .column {
     flex: 33.33%;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
 /usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20230522-408-1agaewm.rb extconf.rb
 creating Makefile
@@ -6,6 +7,16 @@ current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/g
 make "DESTDIR=" clean
 
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
+=======
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20230522-22856-1fhvx64.rb extconf.rb
+creating Makefile
+
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
+make "DESTDIR=" clean
+
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 make "DESTDIR="
 compiling arena.c
 compiling autolink.c
@@ -56,6 +67,12 @@ compiling utf8.c
 compiling xml.c
 linking shared-object commonmarker/commonmarker.so
 
+<<<<<<< HEAD
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 commonmarker.so ./.gem.20230522-408-1n5wobl/commonmarker
+=======
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/commonmarker-0.23.9/ext/commonmarker
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 commonmarker.so ./.gem.20230522-22856-ngk0b2/commonmarker
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b

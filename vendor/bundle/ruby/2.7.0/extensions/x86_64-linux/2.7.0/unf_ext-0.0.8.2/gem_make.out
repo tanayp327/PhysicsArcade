@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
 /usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20230522-408-1rb10dl.rb extconf.rb
 checking for -lstdc++... yes
@@ -7,10 +8,27 @@ current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/g
 make "DESTDIR=" clean
 
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+=======
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20230522-22856-1xd78aq.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make "DESTDIR=" clean
+
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 make "DESTDIR="
 compiling unf.cc
 linking shared-object unf_ext.so
 
+<<<<<<< HEAD
 current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 unf_ext.so ./.gem.20230522-408-11pgvmp
+=======
+current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20230522-22856-1lf7jq2
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b

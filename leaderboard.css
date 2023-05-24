@@ -1,0 +1,95 @@
+/* leaderboard.css */
+
+/* Table Styling */
+
+body {
+  background: linear-gradient(rgb(206, 121, 232), #b8b8d1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #leaderboard th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #leaderboard td {
+    border: 1px solid #0e0c0c;
+    padding: 8px;
+  }
+  
+  /* Form Styling */
+  #addForm label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #addForm input[type="text"],
+  #addForm input[type="number"] {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #080707;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  
+  #addForm button[type="submit"] {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  #addForm button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  
+
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}

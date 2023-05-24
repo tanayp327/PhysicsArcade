@@ -1,0 +1,10 @@
+current directory: /home/paaras_purohit/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/sass-embedded-1.62.1/ext/sass
+/usr/bin/ruby2.7 -I/usr/lib/ruby/2.7.0/rubygems -rrubygems /home/paaras_purohit/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/rake-13.0.6/exe/rake RUBYARCHDIR\=/home/paaras_purohit/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/extensions/x86_64-linux/2.7.0/sass-embedded-1.62.1 RUBYLIBDIR\=/home/paaras_purohit/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/extensions/x86_64-linux/2.7.0/sass-embedded-1.62.1
+fetch https://github.com/sass/dart-sass-embedded/releases/download/1.62.1/sass_embedded-1.62.1-linux-x64.tar.gz
+mkdir -p .
+tar -vxC . -f sass_embedded-1.62.1-linux-x64.tar.gz --no-same-owner --no-same-permissions
+sass_embedded/src/LICENSE
+sass_embedded/src/dart
+sass_embedded/src/dart-sass-embedded.snapshot
+sass_embedded/dart-sass-embedded
+rm sass_embedded-1.62.1-linux-x64.tar.gz
