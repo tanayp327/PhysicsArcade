@@ -24,12 +24,12 @@
   <script>
  // Define an array of leaderboard data containing objects representing players and their scores
 var leaderboardData = [
-  { rank: 1, name: "Chinmay", score: 100 },
-  { rank: 2, name: "Raunak", score: 90 },
-  { rank: 3, name: "Paaras", score: 80 },
-  { rank: 4, name: "Ederick", score: 70 },
-  { rank: 5, name: "Tannay", score: 60 },
-  { rank: 6, name: "Qais", score: 50 }
+  { rank: 1, name: "Chinmay", score: 10 },
+  { rank: 2, name: "Raunak", score: 9 },
+  { rank: 3, name: "Paaras", score: 8 },
+  { rank: 4, name: "Ederick", score: 7 },
+  { rank: 5, name: "Tannay", score: 6 },
+  { rank: 6, name: "Qais", score: 5 }
 ];
 
 // Function to generate the leaderboard table based on the data
@@ -115,7 +115,7 @@ function updateEntry(rank) {
 
 // Function to update the ranks of all entries in the leaderboard
 function updateRanks() {
-  leaderboardData.forEach(function(entry, index) {
+  leaderboardData.forEach(function(entry, index) {fhigh
     entry.rank = index + 1;
   });
 }
@@ -161,3 +161,4 @@ generateLeaderboard();
   </script>
 </body>
 </html>
+
