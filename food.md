@@ -1,49 +1,78 @@
-## Planned Meals
-> The Alpine lodge extra-large kitchen seats 44 people.  The kitchens are perfect for large group meals and all come equipped with appropriate appliances and utensils. There is an outdoor barbecue!  There is a fridge and individual kitchens in the homes.   So there is a place to store snacks, make sure you stock up for the little ones.
-
-1. **Breakfast** will be available at 8am each morning. Families will be able to serve themselves and we ask that you clean up after yourselves as well. Breakfast will close at 9:30 to allow time for clean up before activities begin.
-2.  **Morning Huddle** will be at 9:45am in the dinning hall.  This is a chance to know what the activities are and where you need to be if you are participating.
-3.  **Lunch** will be available at 12pm each day.  Supplies will be available to make your own lunch.  You can dine in the hall or take it with you depending on planned activities.  As always clean up after yourself and your family.  
-4.  **Dinner** will be available at 6pm each evening. It is strongly encouraged to eat in the hall all together so that you do not miss the 7pm Family Night directly afterwards.
-- **NOTE** - The menu for the day will be posted in the dinning hall each morning. Snacks will be left out after lunch and if any remain will be put away when dinner is being prepared.
-    
-### Monday Dinner - Head Chef Lisa (6 - 7pm)
-
-
- 
-### Tuesday Breakfast (8-9:30am)
-> Grits and Sausage Links in the main hall
-
-### Tuesday Lunch
-> Make lunch in the dinning hall.  Pack and Go.  Eat outside or at your housing, pick up trash and leave no mess in dinning hall or grounds.
-
-### Tuesday Dinner - Head Chef Sherri (6-7pm)
-
-
-### Wednesday Breakfast (8-9:30am)
-
-### Wednesday Lunch
-> Make lunch in the dinning hall.  Pack and Go.  Leave no mess please.  There is option to purchase food at the caverns, there is a picnic area at the site.
-
-
-### Wednesday Dinner - Head Chef Angela (6-7pm)
-
-
-### Thursday Breakfast (8-9:30am)
-
-### Thursday Lunch
-> Make lunch in the dinning hall.  Pack and Go.  Leave no mess please.  There will likely be some down time and extra snacks will be wanted while boating.
-
-### Thursday Dinner - Head Chef Jared/Jeremiah (6-7pm)
-
-
-### Friday Breakfast (8-9:30am)
-
-### Friday Lunch
-> Make lunch in the dinning hall.  Pack and Go.  There are lots of places to explore and eat in the community of Shasta Lakes and Redding.
-
-### Friday Dinner - Head Chef John (6-7pm)
-
-
-### Saturday Breakfast (8-9:30am)
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+      window.onload = function() {
+        // Get the canvas element and its context
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        // Set the initial position of the ball
+        var x = canvas.width / 2;
+        var y = canvas.height / 2;
+        // Set the initial velocity and acceleration
+        var velocityY = 0;
+        var accelerationY = 0.2; // Adjust this value to change gravity strength
+        var velocityX = 0;
+        var accelerationX = 0.2; // Adjust this value to change horizontal movement speed
+        var radius = 20;
+        // Add event listeners for keydown and keyup events
+        var keys = {};
+        document.addEventListener("keydown", function(event) {
+          keys[event.key] = true;
+        });
+        document.addEventListener("keyup", function(event) {
+          keys[event.key] = false;
+        });
+        function drawBall() {
+          // Clear the canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          // Update the ball's position and velocity
+          velocityY += accelerationY;
+          y += velocityY;
+          // Check if the ball reaches or crosses the bottom of the canvas
+          if (y + radius > canvas.height) {
+            y = canvas.height - radius; // Set the position to the bottom of the canvas
+            velocityY *= -1; // Reverse the vertical velocity (bounce)
+          }
+          // Move the ball left or right based on the key pressed
+          if (keys['a']) {
+            velocityX = -3; // Adjust this value to change the leftward movement speed
+          } else if (keys['d']) {
+            velocityX = 3; // Adjust this value to change the rightward movement speed
+          } else {
+            velocityX = 0;
+          }
+          x += velocityX;
+          // Check if the ball collides with the left wall
+          if (x - radius < 0) {
+            x = radius; // Set the position to the left wall
+            velocityX *= -1; // Reverse the horizontal velocity (bounce)
+          }
+          // Check if the ball collides with the right wall
+          if (x + radius > canvas.width) {
+            x = canvas.width - radius; // Set the position to the right wall
+            velocityX *= -1; // Reverse the horizontal velocity (bounce)
+          }
+          // Draw the ball
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = "white";
+          ctx.fill();
+          ctx.closePath();
+          // Call the drawBall function repeatedly
+          requestAnimationFrame(drawBall);
+        }
+        // Start the animation
+        drawBall();
+      };
+    </script>
+  </body>
+</html>
