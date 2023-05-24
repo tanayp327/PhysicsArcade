@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
   <title>Projectile Game</title>
@@ -9,7 +8,6 @@
       border: 1px solid black;
       position: relative;
     }
-
     #projectile {
       width: 10px;
       height: 10px;
@@ -18,7 +16,6 @@
       position: absolute;
       bottom: 0;
     }
-
     #target {
       width: 20px;
       height: 20px;
