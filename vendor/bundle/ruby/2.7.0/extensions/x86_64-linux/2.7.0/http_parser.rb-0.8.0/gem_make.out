@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20230522-408-dtil4q.rb extconf.rb
+creating Makefile
+
+current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make "DESTDIR=" clean
+
+current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+=======
 current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
 /usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20230522-22856-1htwgr5.rb extconf.rb
 creating Makefile
@@ -6,11 +16,18 @@ current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.
 make "DESTDIR=" clean
 
 current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
 make "DESTDIR="
 compiling ruby_http_parser.c
 compiling ryah_http_parser.c
 linking shared-object ruby_http_parser.so
 
+<<<<<<< HEAD
+current directory: /home/chinmay/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ruby_http_parser.so ./.gem.20230522-408-lzoigw
+=======
 current directory: /home/qaisjamili/vscode/PhysicsArcade/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 ruby_http_parser.so ./.gem.20230522-22856-1bgpts4
+>>>>>>> d74726920b2ab1f88d6741f085c0d77060389e9b
