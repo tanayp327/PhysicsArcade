@@ -73,12 +73,13 @@
         }
       }
     }
+    
     function generateRandomTarget(gameWidth) {
       const targetElement = document.getElementById('target');
       const targetPosition = Math.floor(Math.random() * (gameWidth - targetElement.offsetWidth));
       targetElement.style.transform = `translateX(${targetPosition}px)`;
     }
-
+    
     function updateGame() {
       const initialVelocity = parseFloat(document.getElementById('velocity').value);
       const angle = parseFloat(document.getElementById('angle').value);
@@ -91,12 +92,13 @@
       const projectileElement = document.getElementById('projectile');
       const targetElement = document.getElementById('target');
       const targetDistance = targetElement.getBoundingClientRect().left - gameElement.getBoundingClientRect().left;
+      
       const outcome = calculateProjectile(initialVelocity, angle, targetHeight, targetDistance);
       
       const projectileFinalPosition = (outcome === 1) ? targetDistance : gameWidth;
       const targetPosition = (outcome === 1) ? targetDistance : gameWidth - targetElement.offsetWidth;
       
-      projectileElement.style.transform = `translateX(${projectileFinalPosition}px)`;
+      projectileElement.style.transform = `translateX(${projectileFinalPosition}px) translateY(-${targetHeight}px)`;
       targetElement.style.transform = `translateX(${targetPosition}px)`;
     }
     
