@@ -73,7 +73,7 @@
         }
       }
     }
-    
+
     function generateRandomTarget(gameWidth) {
       const targetElement = document.getElementById('target');
       const targetPosition = Math.floor(Math.random() * (gameWidth - targetElement.offsetWidth));
