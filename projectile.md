@@ -15,8 +15,9 @@
       background-color: red;
       position: absolute;
       bottom: 0;
+      transition: transform 1s linear;
     }
-    #target {
+    .target {
       width: 20px;
       height: 20px;
       background-color: green;
@@ -27,9 +28,17 @@
 </head>
 <body>
   <h1>Projectile Game</h1>
+  <div>
+    <label for="angle">Angle (degrees):</label>
+    <input type="number" id="angle" min="0" max="90" value="45">
+  </div>
+  <div>
+    <label for="velocity">Initial Velocity (m/s):</label>
+    <input type="number" id="velocity" min="0" value="50">
+  </div>
   <div id="game">
     <div id="projectile"></div>
-    <div id="target"></div>
+    <div id="target" class="target"></div>
   </div>
   <script>
     function calculateProjectile(initialVelocity, angle, targetHeight, targetDistance) {
@@ -64,22 +73,48 @@
         }
       }
     }
+
+    function generateRandomTarget(gameWidth) {
+      const targetElement = document.getElementById('target');
+      const targetPosition = Math.floor(Math.random() * (gameWidth - targetElement.offsetWidth));
+      targetElement.style.transform = `translateX(${targetPosition}px)`;
+    }
+    
+    function updateGame() {
+      const initialVelocity = parseFloat(document.getElementById('velocity').value);
+      const angle = parseFloat(document.getElementById('angle').value);
+      const targetHeight = 10;  // Height of the target above the ground in meters
+      const gameElement = document.getElementById('game');
+      const gameWidth = gameElement.offsetWidth;
+      
+      generateRandomTarget(gameWidth);
+      
+      const projectileElement = document.getElementById('projectile');
+      const targetElement = document.getElementById('target');
+      const targetDistance = targetElement.getBoundingClientRect().left - gameElement.getBoundingClientRect().left;
+      
+      const outcome = calculateProjectile(initialVelocity, angle, targetHeight, targetDistance);
+      
+      const projectileFinalPosition = (outcome === 1) ? targetDistance : gameWidth;
+      const targetPosition = (outcome === 1) ? targetDistance : gameWidth - targetElement.offsetWidth;
+      
+      projectileElement.style.transform = `translateX(${projectileFinalPosition}px) translateY(-${targetHeight}px)`;
+      targetElement.style.transform = `translateX(${targetPosition}px)`;
+    }
+    
+    // Attach event listeners to input elements
+    const angleInput = document.getElementById('angle');
+    const velocityInput = document.getElementById('velocity');
+    angleInput.addEventListener('input', updateGame);
+    velocityInput.addEventListener('input', updateGame);
+    
     // Game settings
-    const initialVelocity = 50;  // Initial velocity in meters per second
-    const angle = 45;  // Launch angle in degrees
-    const targetHeight = 10;  // Height of the target above the ground in meters
-    const targetDistance = 150;  // Horizontal distance to the target in meters
-    // Calculate the outcome
-    const outcome = calculateProjectile(initialVelocity, angle, targetHeight, targetDistance);
-    // Move the projectile and target based on the outcome
-    const projectileElement = document.getElementById('projectile');
-    const targetElement = document.getElementById('target');
-    const gameElement = document.getElementById('game');
-    const gameWidth = gameElement.offsetWidth;
-    const projectileFinalPosition = (outcome === 1) ? targetDistance : gameWidth;
-    const targetPosition = (outcome === 1) ? targetDistance : gameWidth - targetElement.offsetWidth;
-    projectileElement.style.transform = `translateX(${projectileFinalPosition}px)`;
-    targetElement.style.transform = `translateX(${targetPosition}px)`;
+    updateGame();
+    
+    // Animation - Generate a new random target every 3 seconds
+    setInterval(() => {
+      generateRandomTarget(gameElement.offsetWidth);
+    }, 3000);
   </script>
 </body>
 </html>

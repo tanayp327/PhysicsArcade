@@ -5,7 +5,7 @@ html, body {
   }
   
   body {
-    background: linear-gradient(white, #b8b8d1);
+    background: linear-gradient(rgb(255, 171, 46), #b8b8d1);
     display: flex;
     align-items: flex-start;
     justify-content: center;
