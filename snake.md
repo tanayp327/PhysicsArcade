@@ -1,5 +1,25 @@
 <html>
 <head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Snake Game</h1>
+</body>
+</html>
+<html>
+<head>
   <title>Basic Snake HTML Game</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="snake.css">

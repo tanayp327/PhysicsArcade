@@ -1,6 +1,25 @@
 <html>
 <head>
-  <title>Projectile Game</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Projectile Game</h1>
+</body>
+</html>
+<html>
+<head>
   <style>
     #game {
       width: 500px;
@@ -27,7 +46,6 @@
   </style>
 </head>
 <body>
-  <h1>Projectile Game</h1>
   <div>
     <label for="angle">Angle (degrees):</label>
     <input type="number" id="angle" min="0" max="90" value="45">
