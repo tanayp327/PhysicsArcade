@@ -5,13 +5,31 @@
   <style>
     canvas {
       border: 1px solid black;
+      position: relative;
+    }
+    #projectile {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      bottom: 0;
+    }
+    #target {
+      width: 20px;
+      height: 20px;
+      background-color: green;
+      position: absolute;
+      bottom: 0;
     }
   </style>
 </head>
 <body>
   <h1>Projectile Game</h1>
-  <canvas id="gameCanvas" width="500" height="300"></canvas>
-
+  <div id="game">
+    <div id="projectile"></div>
+    <div id="target"></div>
+  </div>
   <script>
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
@@ -68,22 +86,22 @@
 
       requestAnimationFrame(draw);
     }
-
-    canvas.addEventListener("click", function(event) {
-      if (!projectile || !projectile.isLaunched) {
-        const rect = canvas.getBoundingClientRect();
-        const mouseX = event.clientX - rect.left;
-        const mouseY = event.clientY - rect.top;
-
-        const angle = Math.atan2(canvas.height - mouseY, mouseX) * (180 / Math.PI);
-        const initialVelocity = Math.sqrt((mouseX * mouseX) + ((canvas.height - mouseY) * (canvas.height - mouseY)));
-
-        projectile = new Projectile(initialVelocity, angle);
-        projectile.launch();
-      }
-    });
-
-    draw();
+    // Game settings
+    const initialVelocity = 50;  // Initial velocity in meters per second
+    const angle = 45;  // Launch angle in degrees
+    const targetHeight = 10;  // Height of the target above the ground in meters
+    const targetDistance = 150;  // Horizontal distance to the target in meters
+    // Calculate the outcome
+    const outcome = calculateProjectile(initialVelocity, angle, targetHeight, targetDistance);
+    // Move the projectile and target based on the outcome
+    const projectileElement = document.getElementById('projectile');
+    const targetElement = document.getElementById('target');
+    const gameElement = document.getElementById('game');
+    const gameWidth = gameElement.offsetWidth;
+    const projectileFinalPosition = (outcome === 1) ? targetDistance : gameWidth;
+    const targetPosition = (outcome === 1) ? targetDistance : gameWidth - targetElement.offsetWidth;
+    projectileElement.style.transform = `translateX(${projectileFinalPosition}px)`;
+    targetElement.style.transform = `translateX(${targetPosition}px)`;
   </script>
 </body>
 </html>
