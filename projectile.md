@@ -33,14 +33,10 @@
   <script>
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
-
     const gravity = 9.8;  // Acceleration due to gravity in meters per second squared
-
     const targetHeight = 50;  // Height of the target above the ground in pixels
     const targetDistance = 400;  // Horizontal distance to the target in pixels
-
     let projectile = null;
-
     function Projectile(initialVelocity, angle) {
       this.initialVelocity = initialVelocity;
       this.angle = angle;
@@ -51,39 +47,31 @@
       this.y = canvas.height;
       this.isLaunched = false;
     }
-
     Projectile.prototype.launch = function() {
       this.isLaunched = true;
     };
-
     Projectile.prototype.update = function() {
       if (!this.isLaunched) return;
-
       const time = (this.x * 2) / this.initialHorizontalVelocity;
       const horizontalDistance = this.initialHorizontalVelocity * time;
       const verticalDistance = (this.initialVerticalVelocity * time) - (0.5 * gravity * time * time);
       this.x = horizontalDistance;
       this.y = canvas.height - verticalDistance;
-
       if (this.x <= targetDistance && this.y >= canvas.height - targetHeight) {
         // Projectile hits the target
         this.isLaunched = false;
       }
     };
-
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       if (projectile) {
         ctx.beginPath();
         ctx.arc(projectile.x, projectile.y, 5, 0, Math.PI * 2);
         ctx.fillStyle = "red";
         ctx.fill();
       }
-
       ctx.fillStyle = "green";
       ctx.fillRect(targetDistance, canvas.height - targetHeight, 20, 20);
-
       requestAnimationFrame(draw);
     }
     // Game settings
