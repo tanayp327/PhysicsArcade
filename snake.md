@@ -11,6 +11,7 @@
   
     h1 {
       text-align: center;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -18,7 +19,6 @@
   <h1>Snake Game</h1>
 </body>
 </html>
-<html>
 <head>
   <title>Basic Snake HTML Game</title>
   <meta charset="UTF-8">
