@@ -1,4 +1,25 @@
 <html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  
+    h1 {
+      text-align: center;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Physics Game</h1>
+</body>
+</html>
+<html>
   <head>
     <style>
       canvas {

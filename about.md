@@ -1,7 +1,27 @@
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  
+    h1 {
+      text-align: center;
+      text-decoration: underline;
+    }
+  </style>
+</head>
 <body>
-  <h2>Welcome!</h2>
+  <h1>About Us</h1>
+</body>
+</html>
+<body>
 
-  <p> Welcome to our gaming website! Here, you'll find an exciting collection of online games to keep you entertained for hours. Whether you're a casual gamer or a seasoned pro, we have something for everyone.
+  <p> Welcome to the Hectic 6 gaming website! Here, you'll find an exciting collection of online games to keep you entertained for hours. Whether you're a casual gamer or a seasoned pro, we have something for everyone.
 
     Explore our Home page to discover the latest game releases, news, and updates. </p> 
 

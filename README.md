@@ -1,62 +1,11 @@
-## The Reunion Project
+# About
 
-Usage
+This thrilling arcade physics game combines the nostalgic charm of classic racing games with a unique twist of realistic physics. In Retro Racer, players dive into a fast-paced, action-packed experience where they must navigate treacherous tracks, conquer challenging obstacles, and master the art of precision driving. With its vibrant visuals, dynamic gameplay, and addictive mechanics, Retro Racer promises to deliver an exhilarating gaming experience for players of all ages.
 
-1. Midnight Theme. Use the GitHub Pages [Midnight Theme](https://github.com/pages-themes/midnight/blob/master/README.md) as a resource.  This project started with customization of _layouts/default.html from the Midnight Theme.  If you wanted to use a different [GitHub Pages Themes](https://pages.github.com/themes/), you would similarly change `_layouts/default.html` from repo used to support that theme.  Observe comment at top of _layouts/default.html ...
+# Why?
 
-```html
-<!-- 
-  _layouts/default.html
-  customization to original Midnight theme 
-  found through GitHub Pages Themes
- -->
-```
+ Physics Arcade is designed to evoke a sense of nostalgia while providing players with a fresh and immersive gaming experience. We recognize the fond memories many players have of classic arcade racing games and aim to capture that essence while incorporating modern physics-based gameplay mechanics. By blending the best of both worlds, we offer a thrilling challenge that not only entertains but also pushes players to strategize, adapt, and improve their skills. Our goal is to create an enjoyable and engaging gaming experience that appeals to both seasoned gamers seeking a nostalgic rush and newcomers looking for an exciting introduction to the world of arcade-style gaming.
 
-2. Preview Site (Option A) - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).  This instruction provides instructions for ruby `Gemfile`,`bundle install`.  As an addition add `.gitignore` to avoid seeing build files in commit.   After pre-requisites run this command to obtain prompt for web server ...
+ # About us
 
-```bash
-bundle exec jekyll serve -H 0.0.0.0 -P 4001 # -H and -P are optional
-```
-3. Install Nix and run using a Nix shell (Option B).  This should be quicker than Docker and more reliable than previous.
-
-```bash
-sh <(curl -L https://nixos.org/nix/install) # installs nix requires root password
-
-# restart terminal as shell is updated, then cd ~/vscode/project-dir assuming you have it cloned
-
-nix-shell # start shell, aka nix os virtual environment
-code . # activate VSCode in current directory
-
-# open vscode terminal
-
-bundle install # only need to run once, first time. If this command doesn't work, delete your github repo, and reclone it. 
-
-bundle exec jekyll serve # run server
-
-bundle exec jekyll serve --livereload --force_polling # if you are on WSL/windows and the above command doesn't work, try this.
-
-```
-
-4. Preview Site (Option C) - [GitHub Pages Ruby Gem](https://github.com/github/pages-gem) has additional information on making a local server.  Ruby requirements are the same: `Gemfile`,`bundle install`.   This README looks like basis of FastPages `make server` as it uses Docker and shows how to setup a `Makefile`.
-
-5. Customizing style (CSS).  This project uses `/assets/css/style.scss` as the location to customize your CSS. To avoid warnings in VSCode make sure you install `SCSS IntelliSense` plugin.  To understand default style, make sure you ***Preview Site*** and refer to build generated `_site/assets/css/style.css` (this is worth 1000 lectures).  For the reunion site `gallery.md` uses custom style from `assets/css/style.css` to support 3 images per row.  Observe file and position of import and custom CSS, order is important as clarified in Midnight Theme readme. ...
-
-```css
----
----
-
-@import "{{ site.theme }}";
-
-/* "row style" is flexible size and aligns pictures in center */
-.row {
-    align-items: center;
-    display: flex;
-  }
-  
-  /* "column style" is one-third of the width with padding */
-  .column {
-    flex: 33.33%;
-    padding: 5px;
-  }
-```
-
+ we are passionate about crafting exceptional gaming experiences that captivate players and ignite their imagination. Our team of talented developers and designers brings together their love for classic arcade games and their expertise in modern game development techniques. With attention to detail and a deep understanding of physics-based mechanics, we have meticulously designed Retro Racer: Arcade Physics Edition to offer a seamless blend of nostalgia and innovation. Our dedication to creating immersive and enjoyable games is reflected in every aspect of Retro Racer, from its stunning visuals and responsive controls to its carefully crafted levels and exhilarating gameplay. Join us on this thrilling journey and experience the joy of racing in a world where the laws of physics come alive!

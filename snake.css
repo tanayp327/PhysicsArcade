@@ -7,7 +7,7 @@ html, body {
   body {
     background: linear-gradient(rgb(255, 171, 46), #b8b8d1);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 100%;
@@ -16,7 +16,11 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
+  
+.game-container {
+  margin-top: 2rem; /* Adjusted: Increased top margin */
+}
   
   canvas {
     background: tan;
@@ -24,7 +28,7 @@ html, body {
     padding-left: 0;
     padding-right: 0;
     display: block;
-    margin: auto;
+    margin: 0 auto;
   }
   
   :root {
