@@ -228,7 +228,7 @@ function drawProjectile(x) {
     velocity = 0;
 
     if (
-      x + projectileRadius <= canvas.width &&
+      x + projectileRadius >= canvas.width - 100 &&
       projectileY + projectileRadius >= barHeight &&
       projectileY - projectileRadius <= barHeight + 25
     ) {
