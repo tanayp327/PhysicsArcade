@@ -40,7 +40,6 @@ window.onload = function() {
 
 function resetAllVariables() {
   updateVelocityLabel();
-  updateAngleLabel();
   inertia = 0;
   accelerationY = 0.2;
 
@@ -59,15 +58,8 @@ function updateVelocityLabel() {
   document.getElementById('velocityLabel').innerHTML = "Velocity: " + velocity;
 }
 
-// Same thing for the angle.
-function updateAngleLabel() {
-  angle = document.getElementById('angle').value;
-  document.getElementById('angleLabel').innerHTML = "Angle: " + angle;
-}
-
 // The event listeners mentioned.
 document.getElementById('velocity').addEventListener('input', updateVelocityLabel);
-document.getElementById('angle').addEventListener('input', updateAngleLabel);
 
 // Check if user's inputs were collected. All the cool devs use inspect element.
 function getUserGuess() {
@@ -101,32 +93,27 @@ function drawProjectile(x) {
     projectileY = canvas.height - projectileRadius;
     inertia *= -1;
   }
-
-  if (x + projectileRadius >= canvas.width - 100) {
-    if (
-      Math.abs(projectileY + projectileRadius - barHeight) < tolerance ||
-      Math.abs(projectileY + projectileRadius - (canvas.height - barHeight + 25)) < tolerance
-    ) {
-      won = true;
-      document.getElementById('finishLine').innerHTML = "You Won! :)"
-      points += 1;
-    }
-  }
   
   if (x + projectileRadius <= canvas.width) {
     requestAnimationFrame(() => drawProjectile(x));
-  } else {
-    if (won == false) {
-      document.getElementById('finishLine').innerHTML = "You lost :("
-    }
   }
-  
 }
 
-/*
+let score = 0; // Initial score value
 
-The victory checking doesn't work right now. Ask ChatGPT when you come back.
-
-Edit this file so that in the backend server, points doesn't get updated with a value, but rather with a "points += 1" alternative. That will update the user's score.
-
-*/
+function updatePoints() {
+  fetch('api/users')
+    .then(response => response.json())
+    .then(data => {
+      // Assuming the response data is in JSON format and contains a "score" field
+      if (data.score !== undefined) {
+        score = data.score; // Update the score variable with the fetched value
+        console.log('Score updated:', score);
+      } else {
+        console.log('Invalid response format');
+      }
+    })
+    .catch(error => {
+      console.log('Error occurred while fetching data:', error);
+    });
+}
