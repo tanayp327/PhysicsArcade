@@ -228,9 +228,9 @@ function drawProjectile(x) {
     velocity = 0;
 
     if (
-      x + projectileRadius >= canvas.width - 100 &&
+      x + projectileRadius >= canvas.width - 100 /*&&
       projectileY + projectileRadius >= barHeight &&
-      projectileY - projectileRadius <= barHeight + 25
+      projectileY - projectileRadius <= barHeight + 25*/
     ) {
       won = true;
       document.getElementById("finishLine").innerHTML = "You Won! :)";
