@@ -24,13 +24,27 @@
   <script>
     // Define an array of leaderboard data containing objects representing players and their scores
     var leaderboardData = [
-      { rank: 1, name: "Chinmay", score: 100 },
-      { rank: 2, name: "Raunak", score: 90 },
-      { rank: 3, name: "Paaras", score: 80 },
-      { rank: 4, name: "Ederick", score: 70 },
-      { rank: 5, name: "Tannay", score: 60 },
-      { rank: 6, name: "Qais", score: 50 }
+      // { rank: 1, name: "Chinmay", score: 100 },
+      // { rank: 2, name: "Raunak", score: 90 },
+      // { rank: 3, name: "Paaras", score: 80 },
+      // { rank: 4, name: "Ederick", score: 70 },
+      // { rank: 5, name: "Tannay", score: 60 },
+      // { rank: 6, name: "Qais", score: 50 }
     ];
+    const url = "http://127.0.0.1:8086/api/leaderboard/";
+    const post_url = url+"create";
+    const delete_url = url+"delete/";
+    const update update_url = url+"update";
+    const get_options = {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'default',
+      credentials: 'omit',
+      headers: {
+        'Content
+      }
+    }
+
 
     // Function to generate the leaderboard table based on the data
     function generateLeaderboard() {
