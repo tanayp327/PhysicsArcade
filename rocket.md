@@ -48,7 +48,7 @@
             };
 
             // Send a POST request to the Flask API
-            fetch('/game', {
+            fetch('http://127.0.0.1:8086/api/game', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
