@@ -189,7 +189,9 @@ function updateAngleLabel() {
 document
   .getElementById("velocity")
   .addEventListener("input", updateVelocityLabel);
-document.getElementById("angle").addEventListener("input", updateAngleLabel);
+document
+  .getElementById("angle")
+  .addEventListener("input", updateAngleLabel);
 
 function getUserGuess() {
   console.log(velocity);
@@ -222,30 +224,38 @@ function drawProjectile(x) {
   x += velocityX;
   projectileY -= velocityY;
 
-  if (projectileY + projectileRadius >= canvas.height) {
+  if (projectileY + projectileRadius >= canvas.height && won == false) {
     projectileY = canvas.height - projectileRadius;
     inertia = 0;
     velocity = 0;
-
-    if (
-      x + projectileRadius >= canvas.width - 100 /*&&
-      projectileY + projectileRadius >= barHeight &&
-      projectileY - projectileRadius <= barHeight + 25*/
-    ) {
-      won = true;
-      document.getElementById("finishLine").innerHTML = "You Won! :)";
-      points += 1;
-    } else {
-      document.getElementById("finishLine").innerHTML = "You Lost :(";
-      won = false;
-    }
+    document.getElementById('finishLine').innerHTML = "You Lost :(";
+  }
+  if (projectileY + projectileRadius <= 0) {
+    projectileY = canvas.height - projectileRadius;
+    inertia = 0;
+    velocity = 0;
+    document.getElementById('finishLine').innerHTML = "You Lost :(";
   }
 
   if (x + projectileRadius <= canvas.width) {
     requestAnimationFrame(() => drawProjectile(x));
-  } else {
-    if (!won) {
-      document.getElementById("finishLine").innerHTML = "You Lost :(";
+  }
+  
+  if (x + projectileRadius >= canvas.width && won == false) {
+    inertia = 0;
+    velocity = 0;
+    document.getElementById('finishLine').innerHTML = "You Lost :(";
+  }
+
+  if (
+    projectileY + projectileRadius >= canvas.height - barHeight + 50 &&
+    projectileY + projectileRadius <= canvas.height - barHeight - 25
+  ) {
+    if (x + projectileRadius >= canvas.width - 100) {
+      won = true;
+      document.getElementById('finishLine').innerHTML = "You Won! :)";
     }
   }
+
+  lowBar < yval < highBar
 }
