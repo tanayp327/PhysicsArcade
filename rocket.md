@@ -134,8 +134,9 @@
             };
 
             // Send a POST request to the Flask API
-            fetch('http://127.0.0.1:8086/api/rocket/game', {
+            fetch('http://127.0.0.1:8086/api/rocket/game/', {
                 method: 'POST',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
