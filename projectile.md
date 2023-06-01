@@ -1,6 +1,25 @@
 <html>
 <head>
-  <title>Projectile Game</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  
+    h1 {
+      text-align: center;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Projectile Game</h1>
+</body>
+</html>
+<head>
   <style>
     #game {
       width: 500px;
@@ -27,7 +46,6 @@
   </style>
 </head>
 <body>
-  <h1>Projectile Game</h1>
   <div>
     <label for="angle">Angle (degrees):</label>
     <input type="number" id="angle" min="0" max="90" value="45">
@@ -41,14 +59,41 @@
     <div id="target" class="target"></div>
   </div>
   <script>
-    function calculateProjectile(initialVelocity, angle, targetHeight, targetDistance) {
-      // Convert angle to radians
-      const angleRadians = (angle * Math.PI) / 180;
-      // Calculate time of flight
-      const timeOfFlight = (2 * initialVelocity * Math.sin(angleRadians)) / 9.8;
-      // Calculate horizontal distance
-      const horizontalDistance = initialVelocity * Math.cos(angleRadians) * timeOfFlight;
-      if (horizontalDistance === targetDistance) {
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const gravity = 9.8;  // Acceleration due to gravity in meters per second squared
+
+    const targetHeight = 50;  // Height of the target above the ground in pixels
+    const targetDistance = 400;  // Horizontal distance to the target in pixels
+
+    let projectile = null;
+
+    function Projectile(initialVelocity, angle) {
+      this.initialVelocity = initialVelocity;
+      this.angle = angle;
+      this.launchAngleRadians = (angle * Math.PI) / 180;
+      this.initialHorizontalVelocity = initialVelocity * Math.cos(this.launchAngleRadians);
+      this.initialVerticalVelocity = initialVelocity * Math.sin(this.launchAngleRadians);
+      this.x = 0;
+      this.y = canvas.height;
+      this.isLaunched = false;
+    }
+
+    Projectile.prototype.launch = function() {
+      this.isLaunched = true;
+    };
+
+    Projectile.prototype.update = function() {
+      if (!this.isLaunched) return;
+
+      const time = (this.x * 2) / this.initialHorizontalVelocity;
+      const horizontalDistance = this.initialHorizontalVelocity * time;
+      const verticalDistance = (this.initialVerticalVelocity * time) - (0.5 * gravity * time * time);
+      this.x = horizontalDistance;
+      this.y = canvas.height - verticalDistance;
+
+      if (this.x <= targetDistance && this.y >= canvas.height - targetHeight) {
         // Projectile hits the target
         return 1;
       } else if (horizontalDistance < targetDistance) {
@@ -72,12 +117,22 @@
           return 2;
         }
       }
-    }
+    };
 
-    function generateRandomTarget(gameWidth) {
-      const targetElement = document.getElementById('target');
-      const targetPosition = Math.floor(Math.random() * (gameWidth - targetElement.offsetWidth));
-      targetElement.style.transform = `translateX(${targetPosition}px)`;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (projectile) {
+        ctx.beginPath();
+        ctx.arc(projectile.x, projectile.y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "red";
+        ctx.fill();
+      }
+
+      ctx.fillStyle = "green";
+      ctx.fillRect(targetDistance, canvas.height - targetHeight, 20, 20);
+
+      requestAnimationFrame(draw);
     }
     
     function updateGame() {
