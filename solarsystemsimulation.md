@@ -1,6 +1,6 @@
 This shows the implementation of object-oriented programming in Javascript combined with the display of the effects of gravitation on the Solar System
 <head>
-  <title>Solar System Simulation</title>
+  <title>Hectic 6 Solar System Simulation</title>
   <style>
     #solar-system {
       position: relative;
@@ -14,16 +14,16 @@ This shows the implementation of object-oriented programming in Javascript combi
     
     .planet {
       position: absolute;
-      width: 20px;
-      height: 20px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background-color: gray;
       transition: transform 1s;
     }
     
     #sun {
-      width: 40px;
-      height: 40px;
+      width: 80px;
+      height: 80px;
       background-color: yellow;
       border-radius: 50%;
     }
@@ -34,42 +34,42 @@ This shows the implementation of object-oriented programming in Javascript combi
     
     #mercury {
       background-color: #C0C0C0;
-      animation: orbit-mercury 4s linear infinite;
+      animation: orbit-mercury 10s linear infinite;
     }
     
     #venus {
       background-color: #FFA500;
-      animation: orbit-venus 6s linear infinite;
+      animation: orbit-venus 12s linear infinite;
     }
     
     #earth {
       background-color: #6495ED;
-      animation: orbit-earth 8s linear infinite;
+      animation: orbit-earth 16s linear infinite;
     }
     
     #mars {
       background-color: #FF4500;
-      animation: orbit-mars 10s linear infinite;
+      animation: orbit-mars 20s linear infinite;
     }
     
     #jupiter {
       background-color: #F4A460;
-      animation: orbit-jupiter 14s linear infinite;
+      animation: orbit-jupiter 28s linear infinite;
     }
     
     #saturn {
       background-color: #CD853F;
-      animation: orbit-saturn 16s linear infinite;
+      animation: orbit-saturn 32s linear infinite;
     }
     
     #uranus {
       background-color: #00CED1;
-      animation: orbit-uranus 18s linear infinite;
+      animation: orbit-uranus 36s linear infinite;
     }
     
     #neptune {
       background-color: #00008B;
-      animation: orbit-neptune 20s linear infinite;
+      animation: orbit-neptune 40s linear infinite;
     }
     
     .planet:hover {
@@ -87,23 +87,41 @@ This shows the implementation of object-oriented programming in Javascript combi
     
     @keyframes orbit-venus {
       0% {
-        transform: rotate(0deg) translateX(140px) rotate(0deg);
+        transform: rotate(0deg) translateX(120px) rotate(0deg);
       }
       100% {
-        transform: rotate(360deg) translateX(140px) rotate(-360deg);
+        transform: rotate(360deg) translateX(120px) rotate(-360deg);
       }
     }
     
     @keyframes orbit-earth {
       0% {
-        transform: rotate(0deg) translateX(190px) rotate(0deg);
+        transform: rotate(0deg) translateX(150px) rotate(0deg);
       }
       100% {
-        transform: rotate(360deg) translateX(190px) rotate(-360deg);
+        transform: rotate(360deg) translateX(150px) rotate(-360deg);
       }
     }
     
     @keyframes orbit-mars {
+      0% {
+        transform: rotate(0deg) translateX(180px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg) translateX(180px) rotate(-360deg);
+      }
+    }
+    
+    @keyframes orbit-jupiter {
+      0% {
+        transform: rotate(0deg) translateX(210px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg) translateX(210px) rotate(-360deg);
+      }
+    }
+    
+    @keyframes orbit-saturn {
       0% {
         transform: rotate(0deg) translateX(240px) rotate(0deg);
       }
@@ -112,39 +130,21 @@ This shows the implementation of object-oriented programming in Javascript combi
       }
     }
     
-    @keyframes orbit-jupiter {
-      0% {
-        transform: rotate(0deg) translateX(290px) rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg) translateX(290px) rotate(-360deg);
-      }
-    }
-    
-    @keyframes orbit-saturn {
-      0% {
-        transform: rotate(0deg) translateX(340px) rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg) translateX(340px) rotate(-360deg);
-      }
-    }
-    
     @keyframes orbit-uranus {
       0% {
-        transform: rotate(0deg) translateX(390px) rotate(0deg);
+        transform: rotate(0deg) translateX(270px) rotate(0deg);
       }
       100% {
-        transform: rotate(360deg) translateX(390px) rotate(-360deg);
+        transform: rotate(360deg) translateX(270px) rotate(-360deg);
       }
     }
     
     @keyframes orbit-neptune {
       0% {
-        transform: rotate(0deg) translateX(440px) rotate(0deg);
+        transform: rotate(0deg) translateX(300px) rotate(0deg);
       }
       100% {
-        transform: rotate(360deg) translateX(440px) rotate(-360deg);
+        transform: rotate(360deg) translateX(300px) rotate(-360deg);
       }
     }
   </style>
@@ -194,15 +194,15 @@ This shows the implementation of object-oriented programming in Javascript combi
     const solarSystem = document.getElementById('solar-system');
     const description = document.getElementById('planet-description');
 
-    const sun = new Planet('sun', 20, 'yellow', 0, 'The Sun', '1.989 × 10^30', 'N/A');
-    const mercury = new Planet('mercury', 10, '#C0C0C0', 4, 'Mercury', '3.3011 × 10^23', '87.97');
-    const venus = new Planet('venus', 10, '#FFA500', 6, 'Venus', '4.867 × 10^24', '224.70');
-    const earth = new Planet('earth', 10, '#6495ED', 8, 'Earth', '5.972 × 10^24', '365.25');
-    const mars = new Planet('mars', 10, '#FF4500', 10, 'Mars', '6.39 × 10^23', '687');
-    const jupiter = new Planet('jupiter', 10, '#F4A460', 14, 'Jupiter', '1.898 × 10^27', '4,332.59');
-    const saturn = new Planet('saturn', 10, '#CD853F', 16, 'Saturn', '5.683 × 10^26', '10,759.22');
-    const uranus = new Planet('uranus', 10, '#00CED1', 18, 'Uranus', '8.681 × 10^25', '30,688.50');
-    const neptune = new Planet('neptune', 10, '#00008B', 20, 'Neptune', '1.024 × 10^26', '60,182');
+    const sun = new Planet('sun', 40, 'yellow', 0, 'The Sun', '1.989 × 10^30', 'N/A');
+    const mercury = new Planet('mercury', 30, '#C0C0C0', 10, 'Mercury', '3.3011 × 10^23', '87.97');
+    const venus = new Planet('venus', 30, '#FFA500', 12, 'Venus', '4.867 × 10^24', '224.70');
+    const earth = new Planet('earth', 30, '#6495ED', 16, 'Earth', '5.972 × 10^24', '365.25');
+    const mars = new Planet('mars', 30, '#FF4500', 20, 'Mars', '6.39 × 10^23', '687');
+    const jupiter = new Planet('jupiter', 30, '#F4A460', 28, 'Jupiter', '1.898 × 10^27', '4,332.59');
+    const saturn = new Planet('saturn', 30, '#CD853F', 32, 'Saturn', '5.683 × 10^26', '10,759.22');
+    const uranus = new Planet('uranus', 30, '#00CED1', 36, 'Uranus', '8.681 × 10^25', '30,688.50');
+    const neptune = new Planet('neptune', 30, '#00008B', 40, 'Neptune', '1.024 × 10^26', '60,182');
 
     solarSystem.appendChild(sun.createPlanetElement());
     solarSystem.appendChild(mercury.createPlanetElement());
