@@ -1,11 +1,28 @@
-# About
+# Welcome To Physics Arcade
+### Written by Paaras Purohit
 
-This thrilling arcade physics game combines the nostalgic charm of classic racing games with a unique twist of realistic physics. In Retro Racer, players dive into a fast-paced, action-packed experience where they must navigate treacherous tracks, conquer challenging obstacles, and master the art of precision driving. With its vibrant visuals, dynamic gameplay, and addictive mechanics, Retro Racer promises to deliver an exhilarating gaming experience for players of all ages.
+Paaras Purohit, Chinmay Ramamurthy, Ederick Wong, Tanay Patel, Raunak Mondal, and Qais Jamili, as the Hectic Six, are proud to present you the Physics Arcade. Not only can you use this to entertain yourself whenever you like, our algorithms for physics calculations, keyframes, and frontend to backend development are able to be implemented in classes such as CSP and CSA. 
 
-# Why?
+# Deployed Project and Run Instructions
 
- Physics Arcade is designed to evoke a sense of nostalgia while providing players with a fresh and immersive gaming experience. We recognize the fond memories many players have of classic arcade racing games and aim to capture that essence while incorporating modern physics-based gameplay mechanics. By blending the best of both worlds, we offer a thrilling challenge that not only entertains but also pushes players to strategize, adapt, and improve their skills. Our goal is to create an enjoyable and engaging gaming experience that appeals to both seasoned gamers seeking a nostalgic rush and newcomers looking for an exciting introduction to the world of arcade-style gaming.
+[Here](https://tanayp327.github.io/PhysicsArcade/) is the deployed website for students to view and interact. [Here]() is the deployed backend server that contains the database used by the frontend website.
 
- # About us
+To run the website online, simply go to the links replied, simple as that.
 
- we are passionate about crafting exceptional gaming experiences that captivate players and ignite their imagination. Our team of talented developers and designers brings together their love for classic arcade games and their expertise in modern game development techniques. With attention to detail and a deep understanding of physics-based mechanics, we have meticulously designed Retro Racer: Arcade Physics Edition to offer a seamless blend of nostalgia and innovation. Our dedication to creating immersive and enjoyable games is reflected in every aspect of Retro Racer, from its stunning visuals and responsive controls to its carefully crafted levels and exhilarating gameplay. Join us on this thrilling journey and experience the joy of racing in a world where the laws of physics come alive!
+Running repositories locally is different. To run this repository locally with Jekyll, [test your site locally with](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll). To run [this](https://github.com/tanayp327/PhysicsArcadeFlask) backend server, simply run the main.py file to test your backend locally with Flask.
+
+- **Note**: N@TM demos can be found [here](https://github.com/PaarasPurohit/apcompsciportfolio/issues/27#issue-1737167093).
+
+# Use Cases for This Project
+
+### Physics Game
+
+Our physics-based projectile motion game has a lot of use cases, especially since it takes advanced physics and uses code to break it down for people to understand. Notebooks can be found [here](https://paaraspurohit.github.io/apcompsciportfolio/physics-ntbk) on how the code works and how it teaches people about the physics concepts being programmed.
+
+### Snake Game
+
+As opposed to the simulation physics game, the snake game instead can be taught with its behind-the-scenes work. Notebooks can be found [here](https://paaraspurohit.github.io/apcompsciportfolio/snake-ntbk) about how the code works and how to implement keyframing into other CPT's and passion projects.
+
+### Leaderboard
+
+This feature applies the frontend and backend development that we've been learning since the beginning of the year. Notebooks can be found [here](https://paaraspurohit.github.io/apcompsciportfolio/leaderboard-ntbk) about how the code works and how to use frontend and backend development together in student projects.
