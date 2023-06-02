@@ -14,7 +14,7 @@
         }
 
         #game-container {
-            max-width: 400px;
+            max-width: 400px; 
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
@@ -175,4 +175,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
