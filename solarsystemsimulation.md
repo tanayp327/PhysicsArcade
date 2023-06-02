@@ -1,6 +1,6 @@
 This shows the implementation of object-oriented programming in Javascript combined with the display of the effects of gravitation on the Solar System
 <head>
-  <title>Hectic 6 Solar System Simulation</title>
+  <title>Solar System Simulation</title>
   <style>
     #solar-system {
       position: relative;
@@ -19,6 +19,19 @@ This shows the implementation of object-oriented programming in Javascript combi
       border-radius: 50%;
       background-color: gray;
       transition: transform 1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    .planet-info {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
     }
     
     #sun {
@@ -151,7 +164,6 @@ This shows the implementation of object-oriented programming in Javascript combi
 </head>
 <body>
   <div id="solar-system"></div>
-  <div id="planet-description"></div>
 
   <script>
     class Planet {
@@ -169,10 +181,16 @@ This shows the implementation of object-oriented programming in Javascript combi
         const planetElement = document.createElement('div');
         planetElement.id = this.id;
         planetElement.className = 'planet';
-        planetElement.title = this.getDescription();
+        planetElement.title = this.description;
         planetElement.style.backgroundColor = this.color;
         planetElement.style.width = this.radius + 'px';
         planetElement.style.height = this.radius + 'px';
+
+        const planetInfo = document.createElement('div');
+        planetInfo.className = 'planet-info';
+        planetInfo.textContent = this.description;
+        planetElement.appendChild(planetInfo);
+
         return planetElement;
       }
 
@@ -180,21 +198,11 @@ This shows the implementation of object-oriented programming in Javascript combi
         const keyframes = `orbit-${this.id} ${this.orbitDuration}s linear infinite`;
         document.getElementById(this.id).style.animation = keyframes;
       }
-
-      getDescription() {
-        return `
-          ${this.description}
-          Radius: ${this.radius} km
-          Mass: ${this.mass} kg
-          Orbital Period: ${this.orbitalPeriod} days
-        `;
-      }
     }
 
     const solarSystem = document.getElementById('solar-system');
-    const description = document.getElementById('planet-description');
 
-    const sun = new Planet('sun', 40, 'yellow', 0, 'The Sun', '1.989 × 10^30', 'N/A');
+    const sun = new Planet('sun', 80, 'yellow', 0, 'The Sun', '1.989 × 10^30', 'N/A');
     const mercury = new Planet('mercury', 30, '#C0C0C0', 10, 'Mercury', '3.3011 × 10^23', '87.97');
     const venus = new Planet('venus', 30, '#FFA500', 12, 'Venus', '4.867 × 10^24', '224.70');
     const earth = new Planet('earth', 30, '#6495ED', 16, 'Earth', '5.972 × 10^24', '365.25');
@@ -218,9 +226,6 @@ This shows the implementation of object-oriented programming in Javascript combi
 
     planets.forEach(planet => {
       planet.startOrbitAnimation();
-      planet.createPlanetElement().addEventListener('click', function() {
-        description.textContent = planet.getDescription();
-      });
     });
   </script>
 </body>
