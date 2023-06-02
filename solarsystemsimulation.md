@@ -1,6 +1,6 @@
 This shows the implementation of object-oriented programming in Javascript combined with the display of the effects of gravitation on the Solar System
 <head>
-  <title>Solar System Simulation</title>
+  <title>Hectic 6 Solar System Simulation</title>
   <style>
     #solar-system {
       position: relative;
