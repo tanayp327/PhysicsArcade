@@ -8,7 +8,7 @@
         <h3>Directions: Try to get the ball to collide or overlap the bar</h3>
         <label for="velocity">Velocity</label>
         <br>
-        <input type="range" id="velocity" min="0" max="27" value="10"><p id="velocityLabel">Velocity: 10</p>
+        <input type="range" id="velocity" min="0" max="50" value="10"><p id="velocityLabel">Velocity: 10</p>
         <label for="angle">Angle (90° is straight up)</label>
         <br>
         <input type="range" id="angle" min="0" max="90" value="45"><p id="angleLabel">Angle: 45</p>
@@ -16,6 +16,8 @@
         <br><br>
         <canvas width="650px" height="250px" id="canvas1"></canvas>
         <p id="finishLine"></p>
+        <p id="tries">Tries: 0</p>
+
     </body>
     <script src="assets/js/projectilemotion.js"></script>
 </html>
