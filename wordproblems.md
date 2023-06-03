@@ -17,7 +17,6 @@
         <canvas width="650px" height="250px" id="canvas1"></canvas>
         <p id="finishLine"></p>
         <p id="tries">Tries: 0</p>
-
     </body>
     <script src="assets/js/projectilemotion.js"></script>
 </html>

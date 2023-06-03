@@ -355,7 +355,6 @@
     generateLeaderboard();
   </script>
 </body>
-</html>
 
 
 
