@@ -57,11 +57,15 @@
             display: none;
         }
 
+        #canvas {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+
         #success-animation,
         #failure-animation {
             display: none;
-            animation-duration: 2s;
-            animation-fill-mode: forwards;
+            margin-top: 20px;
             opacity: 0;
         }
 
@@ -73,16 +77,6 @@
         .failure {
             color: #ff0000;
             font-weight: bold;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            0% { transform: translateY(50px); }
-            100% { transform: translateY(0); }
         }
     </style>
 </head>
@@ -106,6 +100,9 @@
             <h2>Result:</h2>
             <p id="velocity"></p>
             <p id="altitude"></p>
+            <div id="canvas-container">
+                <canvas id="canvas" width="400" height="400"></canvas>
+            </div>
             <div id="success-animation">
                 <p class="success">Success! The rocket reached outer space.</p>
             </div>
@@ -116,13 +113,14 @@
     </div>
 
     <script>
-        // Add JavaScript code for interacting with the Flask API
         const form = document.getElementById('game-form');
         const resultContainer = document.getElementById('result-container');
         const velocityElement = document.getElementById('velocity');
         const altitudeElement = document.getElementById('altitude');
         const successAnimation = document.getElementById('success-animation');
         const failureAnimation = document.getElementById('failure-animation');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -170,9 +168,37 @@
                     failureAnimation.style.animationFillMode = 'forwards';
                     failureAnimation.style.animationTimingFunction = 'ease-in-out';
                 }
+
+                // Animate the rocket
+                animateRocket(result.altitude);
             })
             .catch(error => console.error('Error:', error));
         });
+
+        function animateRocket(altitude) {
+            let yPos = 380 - (altitude * 2);
+            let frame = 0;
+
+            function drawRocket() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#000';
+                ctx.fillRect(190, yPos, 20, 40);
+                ctx.fillRect(180, yPos + 40, 40, 60);
+                ctx.fillRect(170, yPos + 100, 60, 40);
+                ctx.fillRect(160, yPos + 140, 80, 80);
+                ctx.fillRect(150, yPos + 220, 100, 40);
+                ctx.fillRect(140, yPos + 260, 120, 40);
+                ctx.fillRect(130, yPos + 300, 140, 40);
+
+                if (frame < 60) {
+                    frame++;
+                    yPos -= 4;
+                    requestAnimationFrame(drawRocket);
+                }
+            }
+
+            drawRocket();
+        }
     </script>
 </body>
-</html> 
+</html>
