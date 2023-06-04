@@ -101,7 +101,7 @@
             <p id="velocity"></p>
             <p id="altitude"></p>
             <div id="canvas-container">
-                <canvas id="canvas" width="400" height="400"></canvas>
+                <canvas id="canvas"></canvas>
             </div>
             <div id="success-animation">
                 <p class="success">Success! The rocket reached outer space.</p>
