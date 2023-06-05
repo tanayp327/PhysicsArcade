@@ -139,6 +139,7 @@
             fetch('https://ctrpe.duckdns.org/api/rocket/game', {
                 method: 'POST',
                 mode: 'cors',
+                
                 headers: {
                     'Content-Type': 'application/json'
                 },
