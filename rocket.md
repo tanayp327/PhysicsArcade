@@ -43,7 +43,7 @@
       cursor: pointer;
       margin-top: 10px;
     }
-        button:hover {
+    button:hover {
       background-color: #3e8e41;
     }
     #result-container {
@@ -121,7 +121,7 @@
     const ctx = canvas.getContext("2d");
 
     const spaceBg = new Image();
-    spaceBg.src = 'https://your-image-url.png';
+    spaceBg.src = 'https://www.fg-a.com/wallpapers/2019-deep-space-background.jpg';
 
     // Wait for the background to load before starting the animation
     spaceBg.onload = function() {
