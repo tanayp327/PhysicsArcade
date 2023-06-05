@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 <head>
   <style>
     body {
@@ -50,17 +50,6 @@
          'Content-Type': 'application/json'                
       },
     };
-    function convertToEmbedUrl(url) {
-      let regex = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-      let match = url.match(regex);
-    
-      if (match && match[2].length == 11) {
-        return `https://www.youtube.com/embed/${match[2]}`;
-      } else {
-        return "https://www.youtube.com/embed/dQw4w9WgXcQ";
-      }
-    }
-    
     function deleteHelper(){
       deleteFilms(document.getElementById('Delname').value);
     }
@@ -71,12 +60,9 @@
               'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-              name: document.getElementById("Name").value,
-              year: document.getElementById("Year").value,
-              epcount: document.getElementById("Epcount").value,
-              language: document.getElementById("Language").value,
-              trailer: document.getElementById("Trailer").value,
-              eplist: document.getElementById("Eplist").value,
+              name: document.getElementById("Rank").value,
+              year: document.getElementById("Name").value,
+              epcount: document.getElementById("Score").value,
           })
       }
       fetch(post_url, options)
@@ -176,7 +162,7 @@
     //}
     //document.write(myFilms.length);
 ​
-  </script>
+  </script> -->
 <!--
   <script>
     // Function to fetch leaderboard data from the server
@@ -320,7 +306,7 @@
 </html>
 
 
-<!-- <html>
+<html>
 <head>
   <style>
     body {
@@ -479,7 +465,7 @@
     generateLeaderboard();
   </script>
 </body>
- -->
+
 
 
 
