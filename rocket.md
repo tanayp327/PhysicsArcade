@@ -206,13 +206,14 @@
 
         function animateOneFrame() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            console.log("animateOneFrame() called");
             drawRocket(currentYPos);
 
             frame++;
             currentYPos -= velocityPerFrame;
 
             if (frame < 120) {
-                window.requestAnimationFrame(animateOneFrame);
+                setTimeout(function() { window.requestAnimationFrame(animateOneFrame) }, 16);
             } else {
                 console.log("Animation completed");
             }
