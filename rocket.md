@@ -1,7 +1,7 @@
 <html>
 <head>
-    <title>Rocket Launch Simulator</title>
-    <style>
+<title>Rocket Launch Simulator</title>
+<style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f1f1f1;
@@ -78,7 +78,24 @@
             color: #ff0000;
             font-weight: bold;
         }
-    </style>
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+</style>
+
 </head>
 <body>
     <h1>Rocket Launch Simulator</h1>
@@ -112,7 +129,7 @@
         </div>
     </div>
 
-    <script>
+<script>
         const form = document.getElementById('game-form');
         const resultContainer = document.getElementById('result-container');
         const velocityElement = document.getElementById('velocity');
@@ -177,29 +194,29 @@
         });
 
         function animateRocket(altitude) {
-            let yPos = 380 - (altitude * 2);
-            let frame = 0;
+        let yPos = 380 - (altitude * 2);
+        let frame = 0;
 
-            function drawRocket() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#000';
-                ctx.fillRect(190, yPos, 20, 40);
-                ctx.fillRect(180, yPos + 40, 40, 60);
-                ctx.fillRect(170, yPos + 100, 60, 40);
-                ctx.fillRect(160, yPos + 140, 80, 80);
-                ctx.fillRect(150, yPos + 220, 100, 40);
-                ctx.fillRect(140, yPos + 260, 120, 40);
-                ctx.fillRect(130, yPos + 300, 140, 40);
+        function drawRocket() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#000';
+            ctx.fillRect(190, yPos, 20, 40);
+            ctx.fillRect(180, yPos + 40, 40, 60);
+            ctx.fillRect(170, yPos + 100, 60, 40);
+            ctx.fillRect(160, yPos + 140, 80, 80);
+            ctx.fillRect(150, yPos + 220, 100, 40);
+            ctx.fillRect(140, yPos + 260, 120, 40);
+            ctx.fillRect(130, yPos + 300, 140, 40);
 
-                if (frame < 60) {
-                    frame++;
-                    yPos -= 4;
-                    requestAnimationFrame(drawRocket);
-                }
+            if (frame < 60) {
+                frame++;
+                yPos -= 4;
+                setTimeout(drawRocket, 16.67); // 60 frames per second (1000ms / 60)
             }
-
-            drawRocket();
         }
-    </script>
+
+        drawRocket();
+    }
+</script>
 </body>
 </html>
