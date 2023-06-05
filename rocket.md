@@ -119,7 +119,6 @@
     const failureAnimation = document.getElementById('failure-animation');
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
-    const rocketImage = new Image();
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -188,7 +187,7 @@
         drawRocket(380);
       };
     });
-    
+
     function drawRocket(yPos) {
       const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
