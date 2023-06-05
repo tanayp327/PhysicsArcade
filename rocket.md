@@ -264,8 +264,10 @@
         if (animationType === 'success') {
           if (frame < 60) {
             rocketImage = rocketImages.success1;
-          } else if (frame < 90) {
+          } 
+          else if (frame < 90) {
             rocketImage = rocketImages.success2;
+            }  
           else {
             console.log("Animation completed");
           }
