@@ -192,32 +192,35 @@
         });
 
         function animateRocket(altitude) {
-            console.log('animateRocket() called with altitude:', altitude);
-
             let yPos = 380 - (altitude * 2);
             let frame = 0;
             let rocketImage = new Image();
 
             rocketImage.onload = function() {
-                console.log('rocketImage.onload fired');
                 drawRocket();
             };
 
             rocketImage.src = 'rocket.png';
 
             function drawRocket() {
-                console.log('drawRocket() called');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
                 // Draw the rocket image
                 ctx.drawImage(rocketImage, 180, yPos, 40, 80);
 
-                if (frame < 60) {
+                if (frame < 120) {
                     frame++;
-                    yPos -= 4;
+                    yPos -= 2;
                     setTimeout(drawRocket, 16);
-        }
-    }
+                }
+                else {
+                    console.log('Animation completed');
+                }
+            }
+            // Add a delay before starting the animation
+            setTimeout(() => {
+                drawRocket();
+            }, 2000);
 }
 </script>
 </body>
