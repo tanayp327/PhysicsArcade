@@ -193,65 +193,44 @@
             .catch(error => console.error('Error:', error));
         });
 
-        function animateRocket(altitude) {
-            const canvas = document.getElementById("canvas");
-            const ctx = canvas.getContext("2d");
-            let yPos = 380 - (altitude * 2);
-            let frame = 0;
-            let rocketImage = new Image();
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
 
-            rocketImage.onload = function() {
-                console.log('rocketImage.onload fired');
-                drawRocket();
-            };
+        function drawRocket(altitude) {
+        const yPos = 380 - (altitude * 2);
+        const rocketImage = new Image();
+        rocketImage.src = "rocket.png";
 
-            rocketImage.onerror = function() {
-                console.log('Image load error');
-            };
-
-            rocketImage.src = 'rocket.png';
-
-        function drawRocket() {
-            console.log('drawRocket() called');
-            
-            if (!ctx) {
-                console.log('Canvas context not defined');
-                return;
-            }
-            
-            if (!canvas.width || !canvas.height) {
-                console.log('Canvas dimensions not defined');
-                return;
-            }
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        rocketImage.onload = function () {
             ctx.drawImage(rocketImage, 180, yPos, 40, 80);
-            
-            if (frame < 120) {
-                frame++;
-                yPos -= 2;
-                setTimeout(drawRocket, 16);
-            } else {
-                console.log('Animation completed');
-            }
+
+            animateRocket(yPos);
+        };
         }
 
+        function animateRocket(yPos) {
+            let frame = 0;
+            const rocketImage = new Image();
+            rocketImage.src = "rocket.png";
 
-        // Add a delay before starting the animation
-        setTimeout(() => {
-            rocketImage.onload = function() {
-                console.log("rocketImage.onload fired");
-                drawRocket();
-            };
-            
-            rocketImage.onerror = function() {
-                console.log("Image load error");
-            };
-            rocketImage.src = 'rocket.png';
-            
-            console.log('Starting animation');
-            }, 2000);
-}
+            function animateOneFrame() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+
+                frame++;
+                yPos -= 2;
+
+                if (frame < 120) {
+                window.requestAnimationFrame(animateOneFrame);
+                } else {
+                console.log("Animation completed");
+                }
+            }
+
+            animateOneFrame();
+            }
+
+            drawRocket(0);
 </script>
 </body>
 </html>
