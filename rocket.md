@@ -43,7 +43,7 @@
       cursor: pointer;
       margin-top: 10px;
     }
-        button:hover {
+    button:hover {
       background-color: #3e8e41;
     }
     #result-container {
@@ -62,7 +62,7 @@
     .failure {
       font-size: 24px;
     }
-        @keyframes fadeIn {
+     @keyframes fadeIn {
       0% {
         opacity: 0;
       }
@@ -99,7 +99,7 @@
       <p id="velocity"></p>
       <p id="altitude"></p>
       <div id="canvas-container">
-        <canvas id="canvas" width="400" height="400"></canvas>
+        <canvas id="canvas" width="600" height="600"></canvas>
       </div>
       <div id="success-animation">
         <p class="success">Success! The rocket reached outer space.</p>
@@ -111,7 +111,7 @@
   </div>
 
   <script>
-    const form = document.getElementById('game-form'); 
+    const form = document.getElementById('game-form');
     const resultContainer = document.getElementById('result-container');
     const velocityElement = document.getElementById('velocity');
     const altitudeElement = document.getElementById('altitude');
@@ -119,6 +119,30 @@
     const failureAnimation = document.getElementById('failure-animation');
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
+
+    const spaceGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    spaceGradient.addColorStop(0, 'black');
+    spaceGradient.addColorStop(1, 'navy');
+
+    // Wait for the background to load before starting the animation
+    window.addEventListener('load', function() {
+    // Draw background
+    ctx.fillStyle = spaceGradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Start animation
+    rocketImages.success1.onload = function() {
+        drawRocket(380, rocketImages.success1);
+    };
+    rocketImages.success2.onload = function() {
+        // Don't draw the rocket here since it's used in animateRocket()
+        // drawRocket(380, rocketImages.success2);
+    };
+    rocketImages.failure.onload = function() {
+        // Don't draw the rocket here since it's used in animateRocket()
+        // drawRocket(380, rocketImages.failure);
+    };
+    });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -157,7 +181,7 @@
             successAnimation.style.animationDuration = '4s';
             successAnimation.style.animationFillMode = 'forwards';
             successAnimation.style.animationTimingFunction = 'ease-in-out';
-            
+
             // Start success animation
             animateRocket(380, 'success');
           } else {
@@ -179,12 +203,10 @@
     let rocketImages = {
       success1: new Image(),
       success2: new Image(),
-      success3: new Image(),
       failure: new Image()
     };
     rocketImages.success1.src = 'rocket-success1.png';
     rocketImages.success2.src = 'rocket-success2.png';
-    rocketImages.success3.src = 'rocket-success3.png';
     rocketImages.failure.src = 'rocket-failure.png';
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -194,10 +216,6 @@
       rocketImages.success2.onload = function() {
         // Don't draw the rocket here since it's used in animateRocket()
         // drawRocket(380, rocketImages.success2);
-      };
-      rocketImages.success3.onload = function() {
-        // Don't draw the rocket here since it's used in animateRocket()
-        // drawRocket(380, rocketImages.success3);
       };
       rocketImages.failure.onload = function() {
         // Don't draw the rocket here since it's used in animateRocket()
@@ -209,6 +227,7 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(rocketImage, 180, yPos, 40, 80);
     }
+
     function animateRocket(yPos, animationType) {
       let frame = 0;
       let rocketImage;
@@ -221,7 +240,7 @@
         rocketImage = rocketImages.failure;
       }
 
-    function animateOneFrame() {
+      function animateOneFrame() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawRocket(yPos, rocketImage);
 
@@ -238,11 +257,11 @@
         if (animationType === 'success') {
           if (frame < 60) {
             rocketImage = rocketImages.success1;
-          } else if (frame < 90) {
+          } 
+          else if (frame < 90) {
             rocketImage = rocketImages.success2;
-          } else if (frame < 120) {
-            rocketImage = rocketImages.success3;
-          } else {
+            }  
+          else {
             console.log("Animation completed");
           }
         }
@@ -253,6 +272,7 @@
           console.log("Animation completed");
         }
       }
+
       animateOneFrame();
     }
   </script>
