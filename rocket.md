@@ -138,8 +138,6 @@
         const altitudeElement = document.getElementById('altitude');
         const successAnimation = document.getElementById('success-animation');
         const failureAnimation = document.getElementById('failure-animation');
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -196,6 +194,8 @@
         });
 
         function animateRocket(altitude) {
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
             let yPos = 380 - (altitude * 2);
             let frame = 0;
             let rocketImage = new Image();
@@ -213,36 +213,44 @@
 
         function drawRocket() {
             console.log('drawRocket() called');
+            
             if (!ctx) {
                 console.log('Canvas context not defined');
                 return;
             }
+            
             if (!canvas.width || !canvas.height) {
                 console.log('Canvas dimensions not defined');
                 return;
             }
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "white";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Draw the rocket image
             ctx.drawImage(rocketImage, 180, yPos, 40, 80);
-
+            
             if (frame < 120) {
                 frame++;
                 yPos -= 2;
                 setTimeout(drawRocket, 16);
-            }
-            else {
+            } else {
                 console.log('Animation completed');
             }
         }
 
+
         // Add a delay before starting the animation
         setTimeout(() => {
+            rocketImage.onload = function() {
+                console.log("rocketImage.onload fired");
+                drawRocket();
+            };
+            
+            rocketImage.onerror = function() {
+                console.log("Image load error");
+            };
+            rocketImage.src = 'rocket.png';
+            
             console.log('Starting animation');
-            drawRocket();
-        }, 2000);
+            }, 2000);
 }
 </script>
 </body>
