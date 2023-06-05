@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <title>Leaderboard</title>
   <style>
     body {
       display: flex;
@@ -16,15 +18,7 @@
 </head>
 <body>
   <h1>Leader Board</h1>
-</body>
-</html>
 
-<head>
-  <title>Leaderboard</title>
-  <link rel="stylesheet" href="leaderboard.css">
-</head>
-
-<body>
   <table id="leaderboard">
     <tr>
       <th>Rank</th>
@@ -41,7 +35,7 @@
     <input type="number" id="scoreInput" required>
     <button type="submit">Add to Leaderboard</button>
   </form>
-  
+
   <script>
     // Function to fetch leaderboard data from the server
     function fetchLeaderboardData() {
@@ -189,7 +183,7 @@
     fetchLeaderboardData();
   </script>
 </body>
-
+</html>
 
 
 <!-- <html>
