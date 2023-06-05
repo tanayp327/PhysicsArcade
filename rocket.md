@@ -62,7 +62,7 @@
     .failure {
       font-size: 24px;
     }
-        @keyframes fadeIn {
+     @keyframes fadeIn {
       0% {
         opacity: 0;
       }
@@ -138,10 +138,6 @@
         // Don't draw the rocket here since it's used in animateRocket()
         // drawRocket(380, rocketImages.success2);
     };
-    rocketImages.success3.onload = function() {
-        // Don't draw the rocket here since it's used in animateRocket()
-        // drawRocket(380, rocketImages.success3);
-    };
     rocketImages.failure.onload = function() {
         // Don't draw the rocket here since it's used in animateRocket()
         // drawRocket(380, rocketImages.failure);
@@ -207,12 +203,10 @@
     let rocketImages = {
       success1: new Image(),
       success2: new Image(),
-      success3: new Image(),
       failure: new Image()
     };
     rocketImages.success1.src = 'rocket-success1.png';
     rocketImages.success2.src = 'rocket-success2.png';
-    rocketImages.success3.src = 'rocket-success3.png';
     rocketImages.failure.src = 'rocket-failure.png';
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -222,10 +216,6 @@
       rocketImages.success2.onload = function() {
         // Don't draw the rocket here since it's used in animateRocket()
         // drawRocket(380, rocketImages.success2);
-      };
-      rocketImages.success3.onload = function() {
-        // Don't draw the rocket here since it's used in animateRocket()
-        // drawRocket(380, rocketImages.success3);
       };
       rocketImages.failure.onload = function() {
         // Don't draw the rocket here since it's used in animateRocket()
@@ -269,9 +259,7 @@
             rocketImage = rocketImages.success1;
           } else if (frame < 90) {
             rocketImage = rocketImages.success2;
-          } else if (frame < 120) {
-            rocketImage = rocketImages.success3;
-          } else {
+          else {
             console.log("Animation completed");
           }
         }
