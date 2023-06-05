@@ -111,7 +111,7 @@
   </div>
 
   <script>
-    const form = document.getElementById('game-form');
+    const form = document.getElementById('game-form'); 
     const resultContainer = document.getElementById('result-container');
     const velocityElement = document.getElementById('velocity');
     const altitudeElement = document.getElementById('altitude');
