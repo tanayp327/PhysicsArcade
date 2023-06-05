@@ -118,7 +118,7 @@
             <p id="velocity"></p>
             <p id="altitude"></p>
             <div id="canvas-container">
-                <canvas id="canvas"></canvas>
+                <canvas id="canvas" width="400" height="400"></canvas>
             </div>
             <div id="success-animation">
                 <p class="success">Success! The rocket reached outer space.</p>
@@ -196,22 +196,19 @@
         function animateRocket(altitude) {
             let yPos = 380 - (altitude * 2);
             let frame = 0;
+            let rocketImage = new Image();
+            rocketImage.src = 'rocket.png';
 
             function drawRocket() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#000';
-                ctx.fillRect(190, yPos, 20, 40);
-                ctx.fillRect(180, yPos + 40, 40, 60);
-                ctx.fillRect(170, yPos + 100, 60, 40);
-                ctx.fillRect(160, yPos + 140, 80, 80);
-                ctx.fillRect(150, yPos + 220, 100, 40);
-                ctx.fillRect(140, yPos + 260, 120, 40);
-                ctx.fillRect(130, yPos + 300, 140, 40);
+
+                // Draw the rocket image
+                ctx.drawImage(rocketImage, 180, yPos, 40, 80);
 
                 if (frame < 60) {
                     frame++;
                     yPos -= 4;
-                    setTimeout(drawRocket, 16.67); // 60 frames per second (1000ms / 60)
+                    requestAnimationFrame(drawRocket);
                 }
             }
 
