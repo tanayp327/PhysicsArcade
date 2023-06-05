@@ -184,20 +184,21 @@
 
             // Animate the rocket
             rocketImage.onload = function() {
-              animateRocket(initialYPos, result.altitude);
+                console.log("Rocket image loaded successfully");
+                animateRocket(0, 200);
             };
             rocketImage.onerror = function() {
-              console.error('Error loading image');
+                console.log("Failed to load rocket image");
             };
-            rocketImage.src = 'rocket.png';
+            rocketImage.src = "rocket.png";
         })
         .catch(error => console.error('Error:', error));
     });
 
     const rocketImage = new Image();
 
-    function drawRocket(yPos) {
-        ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+    function drawRocket(xPos, yPos) {
+        ctx.drawImage(rocketImage, xPos, yPos, rocketWidth, rocketHeight);
     }
 
     function animateRocket(currentYPos, destinationYPos) {
