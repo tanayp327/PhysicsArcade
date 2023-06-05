@@ -45,7 +45,7 @@
   <script>
     // Function to fetch leaderboard data from the server
     function fetchLeaderboardData() {
-      fetch('https://ctrpe.duckdns.org/leaderboard')
+      fetch('https://ctrpe.duckdns.org/api/leaderboard')
         .then(response => response.json())
         .then(data => {
           leaderboardData = data;
@@ -56,7 +56,7 @@
 
     // Function to update the server with the modified leaderboard data
     function updateLeaderboardData() {
-      fetch('https://ctrpe.duckdns.org/leaderboard', {
+      fetch('https://ctrpe.duckdns.org/api/leaderboard', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
