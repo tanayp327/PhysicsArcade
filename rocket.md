@@ -140,7 +140,7 @@
         const failureAnimation = document.getElementById('failure-animation');
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
-        
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -190,44 +190,37 @@
                 }
 
                 // Animate the rocket
-                animateRocket(result.altitude);
+                animateRocket(380);
             })
             .catch(error => console.error('Error:', error));
         });
 
-    function drawRocket(altitude) {
-      const yPos = 380 - (altitude * 2);
-      const rocketImage = new Image();
-      rocketImage.src = "rocket.png";
-
-      rocketImage.onload = function() {
-        ctx.drawImage(rocketImage, 180, yPos, 40, 80);
-      };
+    function drawRocket(yPos) {
+      ctx.drawImage(rocketImage, 180, yPos, 40, 80);
     }
 
     function animateRocket(yPos) {
       let frame = 0;
-      const rocketImage = new Image();
-      rocketImage.src = "rocket.png";
+      rocketImage.onload = function() {
+        function animateOneFrame() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(rocketImage, 180, yPos, 40, 80);
 
-    function animateOneFrame() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+          frame++;
+          yPos -= 2;
 
-        frame++;
-        yPos -= 2;
-
-        if (frame < 120) {
-          window.requestAnimationFrame(animateOneFrame);
-        } else {
-          console.log("Animation completed");
-            }
+          if (frame < 120) {
+            window.requestAnimationFrame(animateOneFrame);
+          } else {
+            console.log("Animation completed");
+          }
         }
 
         animateOneFrame();
+      }
     }
 
-    drawRocket(0);
+    drawRocket(380);
 </script>
 </body>
 </html>
