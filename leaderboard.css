@@ -3,7 +3,7 @@
 /* Table Styling */
 
 body {
-  background: linear-gradient(rgb(255, 171, 46), #b8b8d1);
+  background: linear-gradient(rgb(6, 57, 13), rgb(6, 57, 13));
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -11,34 +11,51 @@ body {
   height: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+}
+h1 {
+  color:#ffff;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 70px;
+  text-align: center;
+  padding: 20px;
+  margin: 40px;
 }
 
 #leaderboard {
   width: 100%;
   border-collapse: collapse;
+  font-family: 'Press Start 2P', cursive;
+  margin: 40px;
 }
-
+#boxes { 
+    background-color: transparent;
+    font-family: 'Press Start 2P', cursive;
+    border: 1px solid transparent;
+    padding: 20px;
+}
 #leaderboard th {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
+  font-family: 'Press Start 2P', cursive;
+  background-color: transparent;
+  border: 1px solid transparent;
   padding: 8px;
   text-align: left;
-  color: black; /* Add this line to set the text color to black */
+  color: white; /* Add this line to set the text color to black */
 }
 
 #leaderboard td {
-  border: 1px solid #0e0c0c;
+  border: 1px solid transparent;
+  font-family: 'Press Start 2P', cursive;
   padding: 8px;
-  color: black; /* Add this line to set the text color to black */
+  color: red; /* Add this line to set the text color to black */
 }
 
 /* Form Styling */
 #addForm label {
   display: block;
+  font-family: 'Press Start 2P', cursive;
   margin-bottom: 5px;
+  margin: 40px;
 }
 
 #addForm input[type="text"],
@@ -47,7 +64,7 @@ body {
   padding: 5px;
   border: 1px solid #080707;
   border-radius: 3px;
-  margin-bottom: 10px;
+  margin: 40px;
 }
 
 #addForm button[type="submit"] {
