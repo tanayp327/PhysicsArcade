@@ -132,7 +132,7 @@
         const failureAnimation = document.getElementById('failure-animation');
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
-        const initialYPos = 380;
+        const initialYPos = 300;
 
         form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -184,20 +184,21 @@
 
             // Animate the rocket
             rocketImage.onload = function() {
-              animateRocket(initialYPos, result.altitude);
+                console.log("Rocket image loaded successfully");
+                animateRocket(0, 200);
             };
             rocketImage.onerror = function() {
-              console.error('Error loading image');
+                console.log("Failed to load rocket image");
             };
-            rocketImage.src = 'rocket.png';
+            rocketImage.src = "rocket.png";
         })
         .catch(error => console.error('Error:', error));
     });
 
     const rocketImage = new Image();
 
-    function drawRocket(yPos) {
-        ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+    function drawRocket(xPos, yPos) {
+        ctx.drawImage(rocketImage, xPos, yPos, rocketWidth, rocketHeight);
     }
 
     function animateRocket(currentYPos, destinationYPos) {
@@ -206,13 +207,14 @@
 
         function animateOneFrame() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            console.log("animateOneFrame() called");
             drawRocket(currentYPos);
 
             frame++;
             currentYPos -= velocityPerFrame;
 
             if (frame < 120) {
-                window.requestAnimationFrame(animateOneFrame);
+                setTimeout(function() { window.requestAnimationFrame(animateOneFrame) }, 16);
             } else {
                 console.log("Animation completed");
             }
