@@ -79,6 +79,10 @@
             font-weight: bold;
         }
 
+        canvas {
+            background-color: gray;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -218,6 +222,8 @@
                 return;
             }
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             // Draw the rocket image
             ctx.drawImage(rocketImage, 180, yPos, 40, 80);
