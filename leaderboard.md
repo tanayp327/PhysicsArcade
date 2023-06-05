@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<!DOCTYPE html>
+=======
+<<<<<<< HEAD
 Lu_Berry
 Lu_Berry#0342
 Blubba, Mylk
@@ -16,8 +19,10 @@ Mylk — Today at 9:07 PM
 Blubba — Today at 9:38 PM
 =======
 >>>>>>> e54e015c48d8f3cf2652965399837d6c52a04486
+>>>>>>> ee426678689a1beebb0d764a9577e7112e3c74c6
 <html>
 <head>
+  <title>Leaderboard</title>
   <style>
     body {
       display: flex;
@@ -34,15 +39,7 @@ Blubba — Today at 9:38 PM
 </head>
 <body>
   <h1>Leader Board</h1>
-</body>
-</html>
 
-<head>
-  <title>Leaderboard</title>
-  <link rel="stylesheet" href="leaderboard.css">
-</head>
-
-<body>
   <table id="leaderboard">
     <tr>
       <th>Rank</th>
@@ -59,15 +56,19 @@ Blubba — Today at 9:38 PM
     <input type="number" id="scoreInput" required>
     <button type="submit">Add to Leaderboard</button>
   </form>
-  
+
   <script>
     // Function to fetch leaderboard data from the server
     function fetchLeaderboardData() {
 <<<<<<< HEAD
       fetch('https://ctrpe.duckdns.org/api/leaderboard')
 =======
+<<<<<<< HEAD
+      fetch('https://ctrpe.duckdns.org/api/leaderboard')
+=======
       fetch('https://ctrpe.duckdns.org/leaderboard')
 >>>>>>> e54e015c48d8f3cf2652965399837d6c52a04486
+>>>>>>> ee426678689a1beebb0d764a9577e7112e3c74c6
         .then(response => response.json())
         .then(data => {
           leaderboardData = data;
@@ -81,8 +82,12 @@ Blubba — Today at 9:38 PM
 <<<<<<< HEAD
       fetch('https://ctrpe.duckdns.org/api/leaderboard', {
 =======
+<<<<<<< HEAD
+      fetch('https://ctrpe.duckdns.org/api/leaderboard', {
+=======
       fetch('https://ctrpe.duckdns.org/leaderboard', {
 >>>>>>> e54e015c48d8f3cf2652965399837d6c52a04486
+>>>>>>> ee426678689a1beebb0d764a9577e7112e3c74c6
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -323,7 +328,7 @@ message.txt
     fetchLeaderboardData();
   </script>
 </body>
-
+</html>
 
 
 <!-- <html>
