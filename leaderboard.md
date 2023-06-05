@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Lu_Berry
 Lu_Berry#0342
 Blubba, Mylk
@@ -13,6 +14,8 @@ Blubba
 Mylk — Today at 9:07 PM
 601970187
 Blubba — Today at 9:38 PM
+=======
+>>>>>>> e54e015c48d8f3cf2652965399837d6c52a04486
 <html>
 <head>
   <style>
@@ -60,7 +63,11 @@ Blubba — Today at 9:38 PM
   <script>
     // Function to fetch leaderboard data from the server
     function fetchLeaderboardData() {
+<<<<<<< HEAD
       fetch('https://ctrpe.duckdns.org/api/leaderboard')
+=======
+      fetch('https://ctrpe.duckdns.org/leaderboard')
+>>>>>>> e54e015c48d8f3cf2652965399837d6c52a04486
         .then(response => response.json())
         .then(data => {
           leaderboardData = data;
@@ -71,7 +78,11 @@ Blubba — Today at 9:38 PM
 
     // Function to update the server with the modified leaderboard data
     function updateLeaderboardData() {
+<<<<<<< HEAD
       fetch('https://ctrpe.duckdns.org/api/leaderboard', {
+=======
+      fetch('https://ctrpe.duckdns.org/leaderboard', {
+>>>>>>> e54e015c48d8f3cf2652965399837d6c52a04486
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -107,6 +118,7 @@ Blubba — Today at 9:38 PM
         rankCell.textContent = entry.rank;
         nameCell.textContent = entry.name;
         scoreCell.textContent = entry.score;
+<<<<<<< HEAD
         // Create an update button and attach a click event listener to call the updateEntry function
         var updateButton = document.createElement("button");
         updateButton.textContent = "Update";
@@ -212,6 +224,8 @@ message.txt
         rankCell.textContent = entry.rank;
         nameCell.textContent = entry.name;
         scoreCell.textContent = entry.score;
+=======
+>>>>>>> e54e015c48d8f3cf2652965399837d6c52a04486
         // Create an update button and attach a click event listener to call the updateEntry function
         var updateButton = document.createElement("button");
         updateButton.textContent = "Update";
@@ -472,6 +486,7 @@ message.txt
   </script>
 </body>
  -->
+<<<<<<< HEAD
 
 <head>
   <title>Leaderboard</title>
@@ -620,6 +635,8 @@ message.txt
   </script>
 </body>
 
+=======
+>>>>>>> e54e015c48d8f3cf2652965399837d6c52a04486
 
 
 
