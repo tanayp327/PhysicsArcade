@@ -120,15 +120,15 @@
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
-    const spaceGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    spaceGradient.addColorStop(0, 'black');
-    spaceGradient.addColorStop(1, 'navy');
+    const spaceBg = new Image();
+    spaceBg.src = 'https://www.fg-a.com/wallpapers/2019-deep-space-background.jpg';
 
     // Wait for the background to load before starting the animation
-    window.addEventListener 'load', function() {
-    // Draw background
-    ctx.fillStyle = spaceGradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    spaceBg.onload = function() {
+        // Draw background
+        const spacePattern = ctx.createPattern(spaceBg, 'repeat');
+        ctx.fillStyle = spacePattern;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Start animation
     rocketImages.success1.onload = function() {
