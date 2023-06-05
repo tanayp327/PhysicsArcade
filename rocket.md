@@ -192,33 +192,33 @@
         });
 
         function animateRocket(altitude) {
-        console.log('animateRocket() called with altitude:', altitude);
+            console.log('animateRocket() called with altitude:', altitude);
 
-        let yPos = 380 - (altitude * 2);
-        let frame = 0;
-        let rocketImage = new Image();
+            let yPos = 380 - (altitude * 2);
+            let frame = 0;
+            let rocketImage = new Image();
 
-        rocketImage.onload = function() {
-            console.log('rocketImage.onload fired');
-            drawRocket();
-        };
+            rocketImage.onload = function() {
+                console.log('rocketImage.onload fired');
+                drawRocket();
+            };
 
-        rocketImage.src = 'rocket.png';
+            rocketImage.src = 'rocket.png';
 
-        function drawRocket() {
-            console.log('drawRocket() called');
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            function drawRocket() {
+                console.log('drawRocket() called');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Draw the rocket image
-            ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+                // Draw the rocket image
+                ctx.drawImage(rocketImage, 180, yPos, 40, 80);
 
-            if (frame < 60) {
-                frame++;
-                yPos -= 4;
-                requestAnimationFrame(drawRocket);
-            }
+                if (frame < 60) {
+                    frame++;
+                    yPos -= 4;
+                    setTimeout(drawRocket, 16);
         }
     }
+}
 </script>
 </body>
 </html>
