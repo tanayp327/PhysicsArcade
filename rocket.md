@@ -201,7 +201,19 @@
         .catch(error => console.error('Error:', error));
     });
 
+    const rocketImage = new Image();
+    rocketImage.src = 'rocket.png';
+
+    document.addEventListener('DOMContentLoaded', function() {
+      rocketImage.onload = function() {
+        drawRocket(380);
+      };
+    });
+
     function drawRocket(yPos) {
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
       ctx.drawImage(rocketImage, 180, yPos, 40, 80);
     }
 
