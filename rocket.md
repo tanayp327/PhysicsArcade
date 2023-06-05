@@ -125,7 +125,7 @@
     spaceGradient.addColorStop(1, 'navy');
 
     // Wait for the background to load before starting the animation
-    window.addEventListener('load', function() {
+    window.addEventListener 'load', function() {
     // Draw background
     ctx.fillStyle = spaceGradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
