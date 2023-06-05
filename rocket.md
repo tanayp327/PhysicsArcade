@@ -132,7 +132,7 @@
         const failureAnimation = document.getElementById('failure-animation');
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
-        const initialYPos = 380;
+        const initialYPos = 300;
 
         form.addEventListener('submit', (e) => {
         e.preventDefault();
