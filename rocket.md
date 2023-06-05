@@ -106,13 +106,10 @@
         <form id="game-form">
             <label for="thrust">Thrust:</label>
             <input type="number" id="thrust" name="thrust" required>
-
             <label for="drag">Drag:</label>
             <input type="number" id="drag" name="drag" required>
-
             <label for="time">Time:</label>
             <input type="number" id="time" name="time" required>
-
             <button type="submit">Launch Rocket</button>
         </form>
         <div id="result-container">
@@ -130,7 +127,6 @@
             </div>
         </div>
     </div>
-
 <script>
         const form = document.getElementById('game-form');
         const resultContainer = document.getElementById('result-container');
@@ -142,85 +138,99 @@
         const ctx = canvas.getContext("2d");
 
         form.addEventListener('submit', (e) => {
-            e.preventDefault();
+        e.preventDefault();
 
-            const thrust = parseFloat(document.getElementById('thrust').value);
-            const drag = parseFloat(document.getElementById('drag').value);
-            const time = parseFloat(document.getElementById('time').value);
+        const thrust = parseFloat(document.getElementById('thrust').value);
+        const drag = parseFloat(document.getElementById('drag').value);
+        const time = parseFloat(document.getElementById('time').value);
 
-            const data = {
-                thrust: thrust,
-                drag: drag,
-                time: time
+        const data = {
+            thrust: thrust,
+            drag: drag,
+            time: time
+        };
+
+        // Send a POST request to the Flask API
+        fetch('https://ctrpe.duckdns.org/api/rocket/game', {
+            method: 'POST',
+            mode: 'cors',
+            
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            // Update the game interface with the result
+            velocityElement.textContent = `Velocity: ${result.velocity} m/s`;
+            altitudeElement.textContent = `Altitude: ${result.altitude} m`;
+            resultContainer.style.display = 'block';
+
+            // Show success or failure animation based on the altitude
+            if (result.altitude >= 100000) {
+                successAnimation.style.display = 'block';
+                successAnimation.style.animationName = 'fadeIn';
+                successAnimation.style.opacity = 1;
+                successAnimation.style.animationDuration = '2s';
+                successAnimation.style.animationFillMode = 'forwards';
+                successAnimation.style.animationTimingFunction = 'ease-in-out';
+            } else {
+                failureAnimation.style.display = 'block';
+                failureAnimation.style.animationName = 'slideUp';
+                failureAnimation.style.transform = 'translateY(0)';
+                failureAnimation.style.opacity = 1;
+                failureAnimation.style.animationDuration = '1.5s';
+                failureAnimation.style.animationFillMode = 'forwards';
+                failureAnimation.style.animationTimingFunction = 'ease-in-out';
+            }
+
+            // Animate the rocket
+            rocketImage.onload = function() {
+              animateRocket(initialYPos, result.altitude);
             };
+            rocketImage.onerror = function() {
+              console.error('Error loading image');
+            };
+            rocketImage.src = 'rocket.png';
+        })
+        .catch(error => console.error('Error:', error));
+    });
 
-            // Send a POST request to the Flask API
-            fetch('https://ctrpe.duckdns.org/api/rocket/game', {
-                method: 'POST',
-                mode: 'cors',
-                
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => {
-                // Update the game interface with the result
-                velocityElement.textContent = `Velocity: ${result.velocity} m/s`;
-                altitudeElement.textContent = `Altitude: ${result.altitude} m`;
-                resultContainer.style.display = 'block';
-
-                // Show success or failure animation based on the altitude
-                if (result.altitude >= 100000) {
-                    successAnimation.style.display = 'block';
-                    successAnimation.style.animationName = 'fadeIn';
-                    successAnimation.style.opacity = 1;
-                    successAnimation.style.animationDuration = '2s';
-                    successAnimation.style.animationFillMode = 'forwards';
-                    successAnimation.style.animationTimingFunction = 'ease-in-out';
-                } else {
-                    failureAnimation.style.display = 'block';
-                    failureAnimation.style.animationName = 'slideUp';
-                    failureAnimation.style.transform = 'translateY(0)';
-                    failureAnimation.style.opacity = 1;
-                    failureAnimation.style.animationDuration = '1.5s';
-                    failureAnimation.style.animationFillMode = 'forwards';
-                    failureAnimation.style.animationTimingFunction = 'ease-in-out';
-                }
-
-                // Animate the rocket
-                animateRocket(380);
-            })
-            .catch(error => console.error('Error:', error));
-        });
+    const rocketImage = new Image();
 
     function drawRocket(yPos) {
-      ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+        ctx.drawImage(rocketImage, 180, yPos, 40, 80);
     }
 
-    function animateRocket(yPos) {
-      let frame = 0;
-      rocketImage.onload = function() {
+    function animateRocket(currentYPos, destinationYPos) {
+        let frame = 0;
+        const velocityPerFrame = (destinationYPos - initialYPos)/120;
+
         function animateOneFrame() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawRocket(currentYPos);
 
-          frame++;
-          yPos -= 2;
+            frame++;
+            currentYPos -= velocityPerFrame;
 
-          if (frame < 120) {
-            window.requestAnimationFrame(animateOneFrame);
-          } else {
-            console.log("Animation completed");
-          }
+            if (frame < 120) {
+                window.requestAnimationFrame(animateOneFrame);
+            } else {
+                console.log("Animation completed");
+            }
         }
 
         animateOneFrame();
-      }
     }
 
-    drawRocket(380);
+    document.addEventListener('DOMContentLoaded', function() {
+        rocketImage.onload = function() {
+            drawRocket(initialYPos);
+        };
+        rocketImage.src = 'rocket.png';
+    });
+
 </script>
 </body>
 </html>
