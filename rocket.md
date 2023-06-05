@@ -95,7 +95,6 @@
             }
         }
 </style>
-
 </head>
 <body>
     <h1>Rocket Launch Simulator</h1>
@@ -112,7 +111,6 @@
 
             <button type="submit">Launch Rocket</button>
         </form>
-
         <div id="result-container">
             <h2>Result:</h2>
             <p id="velocity"></p>
@@ -194,17 +192,21 @@
         });
 
         function animateRocket(altitude) {
+        console.log('animateRocket() called with altitude:', altitude);
+
         let yPos = 380 - (altitude * 2);
         let frame = 0;
         let rocketImage = new Image();
 
         rocketImage.onload = function() {
+            console.log('rocketImage.onload fired');
             drawRocket();
         };
 
         rocketImage.src = 'rocket.png';
 
         function drawRocket() {
+            console.log('drawRocket() called');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // Draw the rocket image
