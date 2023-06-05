@@ -111,7 +111,7 @@
   </div>
 
   <script>
-    const form = document.getElementById('game-form'); 
+    const form = document.getElementById('game-form');
     const resultContainer = document.getElementById('result-container');
     const velocityElement = document.getElementById('velocity');
     const altitudeElement = document.getElementById('altitude');
@@ -120,15 +120,15 @@
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
-    const spaceBg = new Image();
-    spaceBg.src = 'https://www.fg-a.com/wallpapers/2019-deep-space-background.jpg';
+    const spaceGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    spaceGradient.addColorStop(0, 'black');
+    spaceGradient.addColorStop(1, 'navy');
 
     // Wait for the background to load before starting the animation
-    spaceBg.onload = function() {
-        // Draw background
-        const spacePattern = ctx.createPattern(spaceBg, 'repeat');
-        ctx.fillStyle = spacePattern;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    window.addEventListener('load', function() {
+    // Draw background
+    ctx.fillStyle = spaceGradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Start animation
     rocketImages.success1.onload = function() {
@@ -146,7 +146,7 @@
         // Don't draw the rocket here since it's used in animateRocket()
         // drawRocket(380, rocketImages.failure);
     };
-    };
+    });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -185,7 +185,7 @@
             successAnimation.style.animationDuration = '4s';
             successAnimation.style.animationFillMode = 'forwards';
             successAnimation.style.animationTimingFunction = 'ease-in-out';
-            
+
             // Start success animation
             animateRocket(380, 'success');
           } else {
@@ -237,6 +237,7 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(rocketImage, 180, yPos, 40, 80);
     }
+
     function animateRocket(yPos, animationType) {
       let frame = 0;
       let rocketImage;
@@ -249,7 +250,7 @@
         rocketImage = rocketImages.failure;
       }
 
-    function animateOneFrame() {
+      function animateOneFrame() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawRocket(yPos, rocketImage);
 
@@ -281,6 +282,7 @@
           console.log("Animation completed");
         }
       }
+
       animateOneFrame();
     }
   </script>
