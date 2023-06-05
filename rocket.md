@@ -106,7 +106,7 @@
       </div>
       <div id="failure-animation">
         <p class="failure">Failure! The rocket did not reach outer space.</p>
-        </div>
+      </div>
     </div>
   </div>
 
@@ -127,11 +127,11 @@
       const drag = parseFloat(document.getElementById('drag').value);
       const time = parseFloat(document.getElementById('time').value);
 
-        const data = {
+      const data = {
         thrust: thrust,
         drag: drag,
         time: time
-        };
+      };
 
       // Send a POST request to the Flask API
       fetch('https://ctrpe.duckdns.org/api/rocket/game', {
@@ -148,61 +148,104 @@
           velocityElement.textContent = `Velocity: ${result.velocity} m/s`;
           altitudeElement.textContent = `Altitude: ${result.altitude} m`;
           resultContainer.style.display = 'block';
-        
-        // Show success or failure animation based on the altitude
-        if (result.altitude >= 100000) {
+
+          // Show success or failure animation based on the altitude
+          if (result.altitude >= 100000) {
             successAnimation.style.display = 'block';
             successAnimation.style.animationName = 'fadeIn';
             successAnimation.style.opacity = 1;
-            successAnimation.style.animationDuration = '2s';
+            successAnimation.style.animationDuration = '4s';
             successAnimation.style.animationFillMode = 'forwards';
             successAnimation.style.animationTimingFunction = 'ease-in-out';
-        } else {
+            
+            // Start success animation
+            animateRocket(380, 'success');
+          } else {
             failureAnimation.style.display = 'block';
             failureAnimation.style.animationName = 'slideUp';
             failureAnimation.style.transform = 'translateY(0)';
             failureAnimation.style.opacity = 1;
-            failureAnimation.style.animationDuration = '1.5s';
+            failureAnimation.style.animationDuration = '2s';
             failureAnimation.style.animationFillMode = 'forwards';
             failureAnimation.style.animationTimingFunction = 'ease-in-out';
-        }
 
-        // Animate the rocket
-        rocketImage.onload = function() {
-            animateRocket(380);
-        };
-        rocketImage.onerror = function() {
-            console.error('Error loading image');
-        };
-          rocketImage.src = 'rocket.png';
+            // Start failure animation
+            animateRocket(380, 'failure');
+          }
         })
         .catch(error => console.error('Error:', error));
     });
 
-    const rocketImage = new Image();
-    rocketImage.src = 'rocket.png';
+    let rocketImages = {
+      success1: new Image(),
+      success2: new Image(),
+      success3: new Image(),
+      failure: new Image()
+    };
+    rocketImages.success1.src = 'rocket-success1.png';
+    rocketImages.success2.src = 'rocket-success2.png';
+    rocketImages.success3.src = 'rocket-success3.png';
+    rocketImages.failure.src = 'rocket-failure.png';
 
     document.addEventListener('DOMContentLoaded', function() {
-      rocketImage.onload = function() {
-        drawRocket(380);
+      rocketImages.success1.onload = function() {
+        drawRocket(380, rocketImages.success1);
+      };
+      rocketImages.success2.onload = function() {
+        // Don't draw the rocket here since it's used in animateRocket()
+        // drawRocket(380, rocketImages.success2);
+      };
+      rocketImages.success3.onload = function() {
+        // Don't draw the rocket here since it's used in animateRocket()
+        // drawRocket(380, rocketImages.success3);
+      };
+      rocketImages.failure.onload = function() {
+        // Don't draw the rocket here since it's used in animateRocket()
+        // drawRocket(380, rocketImages.failure);
       };
     });
 
-    function drawRocket(yPos) {
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
+    function drawRocket(yPos, rocketImage) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(rocketImage, 180, yPos, 40, 80);
     }
-
-    function animateRocket(yPos) {
+    function animateRocket(yPos, animationType) {
       let frame = 0;
+      let rocketImage;
+      let smokeImage = new Image();
+      smokeImage.src = "smoke.png";
 
-      function animateOneFrame() {
+      if (animationType === 'success') {
+        rocketImage = rocketImages.success1;
+      } else {
+        rocketImage = rocketImages.failure;
+      }
+
+    function animateOneFrame() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawRocket(yPos);
+        drawRocket(yPos, rocketImage);
+
+        // Draw the smoke trail for the failure animation
+        if (animationType === 'failure') {
+          let smokeX = 195;
+          ctx.drawImage(smokeImage, smokeX, yPos + 80, 20, 20);
+          smokeX += Math.random() * 20 - 10;
+        }
 
         frame++;
         yPos -= 2;
+
+        if (animationType === 'success') {
+          if (frame < 60) {
+            rocketImage = rocketImages.success1;
+          } else if (frame < 90) {
+            rocketImage = rocketImages.success2;
+          } else if (frame < 120) {
+            rocketImage = rocketImages.success3;
+          } else {
+            console.log("Animation completed");
+          }
+        }
 
         if (frame < 120) {
           window.requestAnimationFrame(animateOneFrame);
@@ -212,6 +255,5 @@
       }
       animateOneFrame();
     }
-</script>
+  </script>
 </body>
-</html>
