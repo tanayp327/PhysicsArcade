@@ -197,30 +197,46 @@
             let rocketImage = new Image();
 
             rocketImage.onload = function() {
+                console.log('rocketImage.onload fired');
                 drawRocket();
+            };
+
+            rocketImage.onerror = function() {
+                console.log('Image load error');
             };
 
             rocketImage.src = 'rocket.png';
 
-            function drawRocket() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                // Draw the rocket image
-                ctx.drawImage(rocketImage, 180, yPos, 40, 80);
-
-                if (frame < 120) {
-                    frame++;
-                    yPos -= 2;
-                    setTimeout(drawRocket, 16);
-                }
-                else {
-                    console.log('Animation completed');
-                }
+        function drawRocket() {
+            console.log('drawRocket() called');
+            if (!ctx) {
+                console.log('Canvas context not defined');
+                return;
             }
-            // Add a delay before starting the animation
-            setTimeout(() => {
-                drawRocket();
-            }, 2000);
+            if (!canvas.width || !canvas.height) {
+                console.log('Canvas dimensions not defined');
+                return;
+            }
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the rocket image
+            ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+
+            if (frame < 120) {
+                frame++;
+                yPos -= 2;
+                setTimeout(drawRocket, 16);
+            }
+            else {
+                console.log('Animation completed');
+            }
+        }
+
+        // Add a delay before starting the animation
+        setTimeout(() => {
+            console.log('Starting animation');
+            drawRocket();
+        }, 2000);
 }
 </script>
 </body>
