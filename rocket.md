@@ -99,7 +99,7 @@
       <p id="velocity"></p>
       <p id="altitude"></p>
       <div id="canvas-container">
-        <canvas id="canvas" width="400" height="400"></canvas>
+        <canvas id="canvas" width="800" height="600"></canvas>
       </div>
       <div id="success-animation">
         <p class="success">Success! The rocket reached outer space.</p>
@@ -119,6 +119,34 @@
     const failureAnimation = document.getElementById('failure-animation');
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
+
+    const spaceBg = new Image();
+    spaceBg.src = 'https://your-image-url.png';
+
+    // Wait for the background to load before starting the animation
+    spaceBg.onload = function() {
+    // Draw background
+    const spacePattern = ctx.createPattern(spaceBg, 'repeat');
+    ctx.fillStyle = spacePattern;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Start animation
+    rocketImages.success1.onload = function() {
+        drawRocket(380, rocketImages.success1);
+    };
+    rocketImages.success2.onload = function() {
+        // Don't draw the rocket here since it's used in animateRocket()
+        // drawRocket(380, rocketImages.success2);
+    };
+    rocketImages.success3.onload = function() {
+        // Don't draw the rocket here since it's used in animateRocket()
+        // drawRocket(380, rocketImages.success3);
+    };
+    rocketImages.failure.onload = function() {
+        // Don't draw the rocket here since it's used in animateRocket()
+        // drawRocket(380, rocketImages.failure);
+    };
+    };
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
