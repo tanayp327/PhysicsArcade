@@ -194,26 +194,29 @@
         });
 
         function animateRocket(altitude) {
-            let yPos = 380 - (altitude * 2);
-            let frame = 0;
-            let rocketImage = new Image();
-            rocketImage.src = 'rocket.png';
+        let yPos = 380 - (altitude * 2);
+        let frame = 0;
+        let rocketImage = new Image();
 
-            function drawRocket() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                // Draw the rocket image
-                ctx.drawImage(rocketImage, 180, yPos, 40, 80);
-
-                if (frame < 60) {
-                    frame++;
-                    yPos -= 4;
-                    requestAnimationFrame(drawRocket);
-                }
-            }
-
+        rocketImage.onload = function() {
             drawRocket();
+        };
+
+        rocketImage.src = 'rocket.png';
+
+        function drawRocket() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the rocket image
+            ctx.drawImage(rocketImage, 180, yPos, 40, 80);
+
+            if (frame < 60) {
+                frame++;
+                yPos -= 4;
+                requestAnimationFrame(drawRocket);
+            }
         }
+    }
 </script>
 </body>
 </html>
