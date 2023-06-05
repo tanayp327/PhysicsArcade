@@ -190,10 +190,16 @@
                 }
 
                 // Animate the rocket
-                animateRocket(380);
-            })
-            .catch(error => console.error('Error:', error));
-        });
+                rocketImage.onload = function() {
+            animateRocket(380);
+          };
+          rocketImage.onerror = function() {
+            console.error('Error loading image');
+          };
+          rocketImage.src = 'rocket.png';
+        })
+        .catch(error => console.error('Error:', error));
+    });
 
     function drawRocket(yPos) {
       ctx.drawImage(rocketImage, 180, yPos, 40, 80);
@@ -201,26 +207,23 @@
 
     function animateRocket(yPos) {
       let frame = 0;
-      rocketImage.onload = function() {
-        function animateOneFrame() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(rocketImage, 180, yPos, 40, 80);
 
-          frame++;
-          yPos -= 2;
+      function animateOneFrame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawRocket(yPos);
 
-          if (frame < 120) {
+        frame++;
+        yPos -= 2;
+
+        if (frame < 120) {
             window.requestAnimationFrame(animateOneFrame);
-          } else {
-            console.log("Animation completed");
-          }
+        } else {
+          console.log("Animation completed");
         }
-
-        animateOneFrame();
       }
+      animateOneFrame();
     }
-
     drawRocket(380);
-</script>
+  </script>
 </body>
 </html>
