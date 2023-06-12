@@ -1,40 +1,68 @@
-<!-- \\ Localhost
+<!-- Existing table structure -->
+<table>
+  <tr>
+      <td><a href="/">Home</a></td>
+      <td><a href="/leaderboard">Leaderboard</a></td>
+      <td><a href="/snake">Snake</a></td>
+      <td><a href="/physics">Physics Game</a></td>
+      <td><a href="/about">About Us</a></td>
+      <td><a href="/wordproblems">Word Problemz</a></td>
+      <td><a href="/rocket">Rocket Game</a></td>
+      <td><a href="/qaismemorygame.html">Memory Game</a></td> <!-- Added link to QaisMemoryGame -->
+  </tr>
+</table>
+\\ GitHub Pages-->
 <table>
     <tr>
         <td><a href="/">Home</a></td>
-        <td><a href="/leaderboard">Leaderboard</a></td>
-        <td><a href="/snake">Snake</a></td>
-        <td><a href="/physics">Physics Game</a></td>
-        <td><a href="/about">About Us</a></td>
-        <td><a href="/wordproblems">Word Problemz</a></td>
-        <td><a href="/rocket">Rocket Game</a></td>
+        <td><a href="PhysicsArcade/leaderboard">Leaderboard</a></td>
+        <td><a href="PhysicsArcade/snake">Snake</a></td>
+        <td><a href="PhysicsArcade/physics">Physics Game</a></td>
+        <td><a href="PhysicsArcade/about">About Us</a></td>
+        <td><a href="PhysicsArcade/wordproblems">Word Problemz</a></td>
+        <td><a href="PhysicsArcade/rocket">Rocket GamPhysicsArcadee</a></td>
     </tr>
-</table>
-\\ GitHub Pages-->
+<table>
 
 <!DOCTYPE html>
 <html>
-    <body>
-        <!--the header section or the top part of every page-->
-        <section class="header">
-            <nav>
-                <!--the logo on the header-->
-                <h2></h2>
-                <div class="nav-links">
-                    <ul>
-                        <!--the links to the other pages-->
-                        <li><a href="{{ site.baseurl }}/">HOME</a></li>
-                        <li><a href="{{ site.baseurl }}/leaderboard.html">Leader Board</a></li>
-                        <li><a href="{{ site.baseurl }}/snake.html">Snake</a></li>
-                        <li><a href="{{ site.baseurl }}/physics.html">Physics Game</a></li>
-                        <li><a href="{{ site.baseurl }}/rocket.html">Rocket Game</a></li>
-                        <li><a href="{{ site.baseurl }}/wordproblems.html">Word Problems</a></li>
-                        <li><a href="{{ site.baseurl }}/about.html">About</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </section>
-    </body>
+<head>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<style>
+    body {
+        background: linear-gradient(rgb(255, 171, 46), #b8b8d1);
+        display: flex;
+        align-items: flex-start;
+        justify-content: top;
+        flex-direction: column;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
+
+<div id="memory-game-container">
+  <div id="game-board"></div>
+</div>
+
+<script src="qaismemorygame.js"></script>
+
+</body>
 </html>
-
-

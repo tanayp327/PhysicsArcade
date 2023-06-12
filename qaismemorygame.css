@@ -1,0 +1,15 @@
+/* Add your CSS styles here */
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    margin: 10px;
+    cursor: pointer;
+}
